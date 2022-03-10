@@ -1,7 +1,7 @@
 const Mongoose = require("mongoose");
 
 const connectToDb = () => {
-  const uri = "mongodb://localhost:27017/companyDB";
+  const uri = "mongodb+srv://admin:admin@cluster0.aiv5m.mongodb.net/Database Deployments?retryWrites=true&w=majority";
 
   let options = {
     useNewUrlParser: true,
