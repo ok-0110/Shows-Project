@@ -1,7 +1,7 @@
 const jsonFile = require("jsonfile");
 
 const getAllPermissions = () => {
-  console.log("getAllPermisdfdfsions");
+  console.log("getAllPermission");
   return new Promise((resolve, reject) => {
     jsonFile.readFile("./json/permissions.json", (err, permissions) => {
       if (err) {
