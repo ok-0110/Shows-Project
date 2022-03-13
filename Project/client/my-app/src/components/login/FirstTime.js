@@ -66,7 +66,7 @@ export default function FirstTime() {
 
   const verifyUser = async () => {
     if (nameValid && passwordValid && newpasswordValid) {
-      const { data: allUsers } = await axios.get("http://localhost:7070/company/users");
+      const { data: allUsers } = await axios.get("https://company-server.vercel.app/company/users");
       // console.log(allUsers);
       const user = allUsers.find((el) => el.UserName === loggdUser.userName);
       if (user === undefined) {
@@ -88,7 +88,7 @@ export default function FirstTime() {
         newUser.Password = newloggdUser.newPassword;
         console.log(newUser);
         const { data: response } = await axios.put(
-          `http://localhost:7070/company/users/${user._id}`,
+          `https://company-server.vercel.app/company/users/${user._id}`,
           newUser
         );
         console.log(response);

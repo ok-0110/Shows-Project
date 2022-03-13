@@ -53,7 +53,7 @@ export default function AddShow() {
   const submit = async () => {
     if (nameValid && genresValid && imagValid) {
       //sand to db
-      await axios.post(`http://localhost:8080/subscriptions/shows`, newShowInfo);
+      await axios.post(`https://subscriptions-server.vercel.app/subscriptions/shows`, newShowInfo);
       //back to all show
       alert("show added");
       navigate("/shows/allshows");

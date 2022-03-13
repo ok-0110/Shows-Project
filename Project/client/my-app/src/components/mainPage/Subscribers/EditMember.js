@@ -19,7 +19,7 @@ export default function EditMember() {
 
   const settingMember = async () => {
     const { data: membersFromAxios } = await axios.get(
-      `http://localhost:8080/subscriptions/members/${memberid}`
+      `https://subscriptions-server.vercel.app/subscriptions/members/${memberid}`
     );
 
     setNewMemberInfo({ ...membersFromAxios });
@@ -76,7 +76,7 @@ export default function EditMember() {
   const submit = async () => {
     if (nameValid && emailValid && cityValid) {
       //sand to db
-      await axios.put(`http://localhost:8080/subscriptions/members/${memberid}`, newMemberInfo);
+      await axios.put(`https://subscriptions-server.vercel.app/subscriptions/members/${memberid}`, newMemberInfo);
       //back to all member
       alert("member updated");
       navigate("/Subscribers/allmembers");

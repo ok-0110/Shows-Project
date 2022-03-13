@@ -12,7 +12,7 @@ export default function SpecificShow() {
   useEffect(() => {
     const getdata = async () => {
       const { data: showData } = await axios.get(
-        `http://localhost:8080/subscriptions/shows/${showid}`
+        `https://subscriptions-server.vercel.app/subscriptions/shows/${showid}`
       );
       setInfoShow(showData);
       setRedy(true);

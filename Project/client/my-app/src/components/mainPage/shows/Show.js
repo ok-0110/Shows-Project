@@ -16,11 +16,11 @@ export default function Show(props) {
   const deleteShow = async () => {
     if (window.confirm(`You sure you want to delete ${props.data.Name}?`)) {
       // delet show
-      await axios.delete(`http://localhost:8080/subscriptions/shows/${props.data._id}`);
+      await axios.delete(`https://subscriptions-server.vercel.app/subscriptions/shows/${props.data._id}`);
 
       //delet Show from subs
       const { data: SubsFromDb } = await axios.get(
-        `http://localhost:8080/subscriptions/subscribers`
+        `https://subscriptions-server.vercel.app/subscriptions/subscribers`
       );
 
       SubsFromDb.forEach((element) => {
@@ -31,7 +31,7 @@ export default function Show(props) {
             console.log(element.MemberId);
 
             delete (await axios.put(
-              `http://localhost:8080/subscriptions/subscribers/removeShow/${element.MemberId}/${props.data._id}`
+              `https://subscriptions-server.vercel.app/subscriptions/subscribers/removeShow/${element.MemberId}/${props.data._id}`
             ));
           }
         });

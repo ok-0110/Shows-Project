@@ -18,10 +18,10 @@ export default function Member(props) {
   const deleteMember = async () => {
     if (window.confirm(`You sure you want to delete ${props.data.Name}?`)) {
       // delet member
-      await axios.delete(`http://localhost:8080/subscriptions/members/${props.data._id}`);
+      await axios.delete(`https://subscriptions-server.vercel.app/subscriptions/members/${props.data._id}`);
 
       //delet Member from subs
-      await axios.delete(`http://localhost:8080/subscriptions/subscribers/${props.data._id}`);
+      await axios.delete(`https://subscriptions-server.vercel.app/subscriptions/subscribers/${props.data._id}`);
 
       //reload
       setReload(!reload);

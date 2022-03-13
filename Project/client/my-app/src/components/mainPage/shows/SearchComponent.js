@@ -10,10 +10,8 @@ export default function SearchComponent() {
   const [reload, setReload] = useState(false);
 
   const getAllshwos = async () => {
-    const { data: allShowsFromDB } = await axios.get(`http://localhost:8080/subscriptions/shows`);
+    const { data: allShowsFromDB } = await axios.get(`https://subscriptions-server.vercel.app/subscriptions/shows`);
    
-    console.log(allShowsFromDB);
-
     const options = {
         includeScore: true,
         keys: ["Name", "Genres"],

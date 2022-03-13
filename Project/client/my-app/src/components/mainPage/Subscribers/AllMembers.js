@@ -7,7 +7,7 @@ export default function AllMembers() {
   const [reload, setReload] = useState(false);
 
   const getAllMembers = async () => {
-    const { data: allMembersFromDB } = await axios.get(`http://localhost:8080/subscriptions/members`);
+    const { data: allMembersFromDB } = await axios.get(`https://subscriptions-server.vercel.app/subscriptions/members`);
 
     const Shwos = allMembersFromDB.map((el) => {
       return <Member key={el._id} data={el} setReload={[reload, setReload]} />;

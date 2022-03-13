@@ -13,7 +13,7 @@ export default function AllUsers() {
 
   const getAllEmployees = async () => { 
     const { data: allEmployeedsFromJson } = await axios.get(
-      `http://localhost:7070/company/employee`
+      `https://company-server.vercel.app/company/employee`
     );
 
     const Users = allEmployeedsFromJson.map((el) =>  {

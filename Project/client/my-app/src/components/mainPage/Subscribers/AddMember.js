@@ -63,7 +63,7 @@ export default function AddMember() {
   const submit = async (e) => {
     if (nameValid && emailValid && cityValid) {
       //sand member to DB and sub to DB
-      await axios.post(`http://localhost:8080/subscriptions/members`, newMemberInfo);
+      await axios.post(`https://subscriptions-server.vercel.app/subscriptions/members`, newMemberInfo);
 
       //back to all member
       alert("member updated");

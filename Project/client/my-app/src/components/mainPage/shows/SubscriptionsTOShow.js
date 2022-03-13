@@ -7,7 +7,7 @@ export default function SubscriptionsTOShow(props) {
   const [listOfSub, setListOfSub] = useState([]);
 
   const getSubsToShow = async () => {
-    const { data: SubsFromDb } = await axios.get(`http://localhost:8080/subscriptions/subscribers`);
+    const { data: SubsFromDb } = await axios.get(`https://subscriptions-server.vercel.app/subscriptions/subscribers`);
 
     SubsFromDb.forEach((element) => {
       const userSub = { userId: " ", date: " " };
@@ -36,7 +36,7 @@ export default function SubscriptionsTOShow(props) {
       const allReleventSubs = await Promise.all(
         allSubs.map(async (el, index) => {
           const { data: membersForLi } = await axios.get(
-            `http://localhost:8080/subscriptions/members/${el.userId}`
+            `https://subscriptions-server.vercel.app/subscriptions/members/${el.userId}`
           );
 
           return (

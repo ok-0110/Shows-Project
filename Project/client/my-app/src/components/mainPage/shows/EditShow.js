@@ -20,7 +20,7 @@ export default function EditShow() {
 
   const settingShow = async () => {
     const { data: showsFromAxios } = await axios.get(
-      `http://localhost:8080/subscriptions/shows/${showid}`
+      `https://subscriptions-server.vercel.app/subscriptions/shows/${showid}`
     );
 
     setNewShowInfo({ ...showsFromAxios });
@@ -66,7 +66,7 @@ export default function EditShow() {
   const submit = async (e) => {
     if (nameValid && genresValid && imagValid) {
       //sand to db
-      await axios.put(`http://localhost:8080/subscriptions/shows/${showid}`, newShowInfo);
+      await axios.put(`https://subscriptions-server.vercel.app/subscriptions/shows/${showid}`, newShowInfo);
       //back to all show
       alert("show updated");
       navigate("/shows/allshows");

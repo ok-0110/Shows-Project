@@ -14,13 +14,13 @@ export default function AddSubscripsion(props) {
 
   useEffect(() => {
     const getShows = async () => {
-      const { data: AllShows } = await axios.get(`http://localhost:8080/subscriptions/shows`);
+      const { data: AllShows } = await axios.get(`https://subscriptions-server.vercel.app/subscriptions/shows`);
       // console.log(AllShows);
       setShows(AllShows);
     };
     const getSubs = async () => {
       const { data: AllSubs } = await axios.get(
-        `http://localhost:8080/subscriptions/subscribers/memnerId/${props.memberId}`
+        `https://subscriptions-server.vercel.app/subscriptions/subscribers/memnerId/${props.memberId}`
       );
       // console.log(AllSubs);
       setSubs(AllSubs);
@@ -85,7 +85,7 @@ export default function AddSubscripsion(props) {
     if (newMemberSun.showId !== " ") {
       //add to db
       const { data: respons } = await axios.put(
-        `http://localhost:8080/subscriptions/subscribers/addShow/${props.memberId}/${newMemberSun.showId}/${newMemberSun.date}`
+        `https://subscriptions-server.vercel.app/subscriptions/subscribers/addShow/${props.memberId}/${newMemberSun.showId}/${newMemberSun.date}`
       );
       console.log(respons);
       //apdate page

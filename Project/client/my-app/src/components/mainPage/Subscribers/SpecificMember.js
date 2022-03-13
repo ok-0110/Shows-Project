@@ -12,7 +12,7 @@ export default function SpecificMember() {
   useEffect(() => {
     const getdata = async () => {
       const { data: memberData } = await axios.get(
-        `http://localhost:8080/subscriptions/members/${memberid}`
+        `https://subscriptions-server.vercel.app/subscriptions/members/${memberid}`
       );
       setInfoMember(memberData);
       setRedy(true);

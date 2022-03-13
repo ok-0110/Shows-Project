@@ -78,7 +78,7 @@ export default function AddUser() {
         Password: `1234`,
       };
       const { data: userResponsFromDB } = await axios.post(
-        `http://localhost:7070/company/users`,
+        `https://company-server.vercel.app/company/users`,
         newUser
       );
       //get id tnd sand to employee.json
@@ -86,12 +86,12 @@ export default function AddUser() {
       // newUser.userName = "userName exist";
       newUser.userId = userResponsFromDB._id;
 
-      await axios.post(`http://localhost:7070/company/employee`, newUser);
+      await axios.post(`https://company-server.vercel.app/company/employee`, newUser);
 
       //get id tnd sand to permisions.json
       const arrOfPermisions = checkboxsToArrOfString();
       const userPermi = { userId: userResponsFromDB._id, permissions: arrOfPermisions };
-      await axios.post(`http://localhost:7070/company/permissions`, userPermi);
+      await axios.post(`https://company-server.vercel.app/company/permissions`, userPermi);
 
       //back to all users
       alert("user added");

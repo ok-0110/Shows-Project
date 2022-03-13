@@ -12,7 +12,7 @@ export default function Subscribers(props) {
 
   const getSub = async () => {
     const { data: responesFromDb } = await axios.get(
-      `http://localhost:8080/subscriptions/subscribers/memnerId/${props.memberId}`
+      `https://subscriptions-server.vercel.app/subscriptions/subscribers/memnerId/${props.memberId}`
     );
 
     setUserSubscripsions(responesFromDb);
@@ -28,7 +28,7 @@ export default function Subscribers(props) {
       const listItems = await Promise.all(
         userSubscripsions.Shows.map(async (el, index) => {
           const { data: showInfo } = await axios.get(
-            `http://localhost:8080/subscriptions/shows/${el.showId}`
+            `https://subscriptions-server.vercel.app/subscriptions/shows/${el.showId}`
           );
 
           return (

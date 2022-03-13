@@ -8,7 +8,7 @@ export default function AllShows() {
 
 
   const getAllshwos = async () => {
-    const { data: allShowsFromDB } = await axios.get(`http://localhost:8080/subscriptions/shows`);
+    const { data: allShowsFromDB } = await axios.get(`https://subscriptions-server.vercel.app/subscriptions/shows`);
     // const [allShows, setAllShows] = useState([]);
 
     const Shwos = allShowsFromDB.map((el) => {

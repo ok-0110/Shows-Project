@@ -14,7 +14,7 @@ export default function User(props) {
 
   const getUserPermissions = async () => {
     const { data: UserPermissions } = await axios.get(
-      `http://localhost:7070/company/permissions/${props.data.userId}`
+      `https://company-server.vercel.app/company/permissions/${props.data.userId}`
     );
     setPermissions(UserPermissions);
   };
@@ -22,11 +22,11 @@ export default function User(props) {
   const deleteUser = async () => {
     if (window.confirm(`You sure you want to delete ${props.data.firstName}`)) {
       //user
-      await axios.delete(`http://localhost:7070/company/users/${props.data.userId}`);
+      await axios.delete(`https://company-server.vercel.app/company/users/${props.data.userId}`);
       //permission
-      await axios.delete(`http://localhost:7070/company/permissions/${props.data.userId}`);
+      await axios.delete(`https://company-server.vercel.app/company/permissions/${props.data.userId}`);
       //employee
-      await axios.delete(`http://localhost:7070/company/employee/${props.data.userId}`);
+      await axios.delete(`https://company-server.vercel.app/company/employee/${props.data.userId}`);
       //reload
       setReload(!reload);
     }

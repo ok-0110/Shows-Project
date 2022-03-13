@@ -44,7 +44,7 @@ export default function Login() {
 
   const verifyUser = async () => {
     if (nameValid && passwordValid) {
-      const { data: allUsers } = await axios.get("http://localhost:7070/company/users");
+      const { data: allUsers } = await axios.get("https://company-server.vercel.app/company/users");
       const user = allUsers.find((el) => el.UserName === loggdUser.userName);
       if (user === undefined) {
         alert("user-name not match :(");
@@ -63,7 +63,7 @@ export default function Login() {
   const login = async (userObj) => {
     if (loggdUser.password !== "1234") {
       const { data: userPremission } = await axios.get(
-        `http://localhost:7070/company/permissions/${userObj._id}`
+        `https://company-server.vercel.app/company/permissions/${userObj._id}`
       );
       sessionStorage.setItem("permissions", JSON.stringify(userPremission.permissions));
       sessionStorage.setItem("isLogged", JSON.stringify(true));
@@ -73,7 +73,7 @@ export default function Login() {
       } else {
         sessionStorage.setItem("isAdmin", JSON.stringify(false));
         const { data: useremployee } = await axios.get(
-          `http://localhost:7070/company/employee/${userObj._id}`
+          `https://company-server.vercel.app/company/employee/${userObj._id}`
         );
         sessionStorage.setItem("name", JSON.stringify(`${useremployee.firstName}`));
       }
