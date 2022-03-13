@@ -27,7 +27,8 @@ export default function EditUser() {
 
     setUserFromDB({ ...usersFromAxios });
     setEmployeeFromJson({ ...employeeFromAxios });
-    setPremssionsFromJson({ ...permissionsFromAxios });
+    console.log(employeeFromAxios);
+    setPremssionsFromJson({ ...permissionsFromAxios });    
   };
 
   useEffect(() => {
@@ -68,6 +69,7 @@ export default function EditUser() {
       createdDate: employeeFromJson.createdDate,
       SessionTimeOut: employeeFromJson.SessionTimeOut,
     });
+    
   };
 
   useEffect(() => {
@@ -319,7 +321,7 @@ export default function EditUser() {
         </label>
         <input
           type={"date"}
-          defaultValue={employeeFromJson.createdDate}
+          defaultValue={employeeFromJson.createdDate === undefined ?undefined: employeeFromJson.createdDate.toString().slice(0, 10)}
           onChange={setUserInfo}
           name="createdDate"
           style={{ width: "155px" }}

@@ -1,4 +1,4 @@
-const path = require("path")
+const path = require("path");
 
 //expres
 const express = require("express"); //thig to bild server
@@ -35,7 +35,7 @@ app.listen(7070, () => {
 const admin = async () => {
   console.log("admin check");
   const userServices = require("./services/userServices");
-  const permissionssBL = require("./BL/permissionsBL");
+  const permissionsServices = require("./services/permissionsServices");
 
   let allUsers = await userServices.getAllUsers();
   const exsist = allUsers.find((el) => el.UserName === "admin");
@@ -44,17 +44,14 @@ const admin = async () => {
       UserName: "admin",
       Password: "admin",
     };
-    await userServices.addUser(adminToUserDB);
+    const resolveAdmin = await userServices.addUser(adminToUserDB);
     console.log("created admin");
 
     //set permissions
-   
-    allUsers = await userServices.getAllUsers();
-
-    const findAdmin = allUsers.find((el) => el.UserName === "admin");
     const adminToPremission = {
-      userId: findAdmin._id,
-      permissions: ["Admin",
+      userId: resolveAdmin._id,
+      permissions: [
+        "Admin",
         "View Subscriptions",
         "Create Subscriptions",
         "Delete Subscriptions",
@@ -63,8 +60,8 @@ const admin = async () => {
         "Delete Movies",
       ],
     };
-    
-    await permissionssBL.addPermissions(adminToPremission);
+
+    await permissionsServices.addPermission(adminToPremission);
     console.log("created permissions");
   } else {
     console.log("admin exsist");

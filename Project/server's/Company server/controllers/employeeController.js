@@ -1,5 +1,5 @@
 const express = require("express");
-const employeeBL = require("../BL/employeeBL");
+const employeeServices = require("../services/employeeServices");
 
 const router = express.Router();
 
@@ -23,7 +23,7 @@ Delete by id: method-delete /employees/:_id
 router.route("/").get(async (request, response) => {
   console.log("get all employees");
   try {
-    const employees = await employeeBL.getAllEmployee();
+    const employees = await employeeServices.getAllEmployees();
 
     return response.json(employees);
   } catch (error) {
@@ -37,7 +37,7 @@ router.route("/").get(async (request, response) => {
 router.route("/:_id").get(async (request, response) => {
   try {
     const _id = request.params._id;
-    const employee = await employeeBL.getEmployeeById(_id);
+    const employee = await employeeServices.getEmployeeById(_id);
     return response.json(employee);
   } catch (error) {
     return response.json(error);
@@ -48,7 +48,7 @@ router.route("/:_id").get(async (request, response) => {
 router.route("/").post(async (request, response) => {
   try {
     const newEmployee = request.body;
-    const employee = await employeeBL.addEmployee(newEmployee);
+    const employee = await employeeServices.addEmployee(newEmployee);
 
     return response.json(employee);
   } catch (error) {
@@ -62,7 +62,7 @@ router.route("/:_id").put(async (request, response) => {
   try {
     const _id = request.params._id;
     const updateEmployee = request.body;
-    const employee = await employeeBL.updateEmployee(_id, updateEmployee);
+    const employee = await employeeServices.updateEmployee(_id, updateEmployee);
     return response.json(employee);
   } catch (error) {
     return response.json(error);
@@ -73,7 +73,7 @@ router.route("/:_id").put(async (request, response) => {
 router.route("/:_id").delete(async (request, response) => {
   try {
     const _id = request.params._id;
-    const employee = await employeeBL.deleteEmployee(_id);
+    const employee = await employeeServices.deleteEmployee(_id);
     return response.json(employee);
   } catch (error) {
     return response.json(error);

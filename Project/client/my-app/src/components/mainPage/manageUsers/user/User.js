@@ -47,7 +47,7 @@ export default function User(props) {
       <span className="fontBold">User Name: </span>
       <span>{`${props.data.userName}`}</span> <br />
       <span className="fontBold">created date: </span>
-      <span>{`${props.data.createdDate}`}</span> <br />
+      <span>{`${props.data.createdDate.slice(0, 10)}`}</span> <br />
       <span className="fontBold">session time out: </span>
       <span>{`${props.data.SessionTimeOut}`}</span> <br />
       <span className="fontBold">{`permissions:`}</span>
