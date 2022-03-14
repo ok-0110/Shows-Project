@@ -1,6 +1,6 @@
 # Shows-Project 
 
- Version of my final project that could deploy 
+ Version of my final project that corently deploy 
 
 I used MongoDB Atlas for both of the databases, &nbsp;  Service called Vercel to host the servers, &nbsp; And Google Firebase to host the front-end.
 
