@@ -121,7 +121,7 @@ export default function AddSubscripsion(props) {
         class="updateOrAdd"
         role="button"
       >
-        <span class="text">Add To Subscripsions</span>
+        <span class="text">Add To Subscriptions</span>
       </button>
     </div>
   );

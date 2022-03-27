@@ -58,11 +58,11 @@ export default function Subscribers(props) {
   return (
     <div style={{paddingLeft: "5px" , border: "1px solid black", margin: "4px" }}>
     
-      <span>Show Watched</span> <br />
-      &nbsp;<button class="button-28" role="button" onClick={addSub}>Add Show to Subscripsions</button>
+      <span>Shows Watched</span> <br />
+      &nbsp;<button class="button-28" role="button" onClick={addSub}>Add Show to Subscriptions</button>
       {addSubComponent?<AddSubscripsion memberId={props.memberId} setReload={props.setReload}/>:null} <br/>
-      <span  className="fontBold">Subscripsions status: </span>
-      {userSubscripsions.Shows.length >= 1 ? <ul>{listOfSubs}</ul> : <span> no Subscripsions</span>}
+      <span  className="fontBold">Subscriptions status: </span>
+      {userSubscripsions.Shows.length >= 1 ? <ul>{listOfSubs}</ul> : <span> no Subscriptions</span>}
     </div>
   );
   // return (<div>00</div>)

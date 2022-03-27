@@ -96,7 +96,7 @@ export default function EditShow() {
       {imagValid ? null : <span>Image is invalid use Min of 1 letters</span>} <br />
       <label htmlFor="Premiered date" className="fontBold">
         {" "}
-        Premiered date:{" "}
+        Premier date:{" "}
       </label>
       <input
         type={"date"}

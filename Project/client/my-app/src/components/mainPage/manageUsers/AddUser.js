@@ -199,7 +199,7 @@ export default function AddUser() {
         <br />
         {firstName ? null : (
           <span style={{ fontSize: "12px", color: "#690b03" }}>
-            firstName is invalid use only A-Z , a-z , Between 2-10 letters{" "}
+            first Name is invalid use only A-Z , a-z , Between 2-10 letters{" "}
           </span>
         )}{" "}
         <br />
@@ -210,12 +210,12 @@ export default function AddUser() {
         <br />
         {lastName ? null : (
           <span style={{ fontSize: "12px", color: "#690b03" }}>
-            lastName is invalid use only A-Z , a-z , Between 2-10 letters{" "}
+            last Name is invalid use only A-Z , a-z , Between 2-10 letters{" "}
           </span>
         )}{" "}
         <br />
         <label className="fontBold" htmlFor="User Name">
-          User Name:{" "}
+          UserName:{" "}
         </label>
         <input type={"text"} onChange={setUserInfo} name="userName" />
         <br />
@@ -240,7 +240,7 @@ export default function AddUser() {
         <br />
         <label className="fontBold" htmlFor="Session Time Out">
           {" "}
-          Session Time Out:{" "}
+          Session TimeOut:{" "}
         </label>
         <input
           type={"number"}

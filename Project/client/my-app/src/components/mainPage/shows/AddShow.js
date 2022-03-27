@@ -107,7 +107,7 @@ export default function AddShow() {
       <br />
       <label className="fontBolder" htmlFor="Premiered date">
         {" "}
-        Premiered date:{" "}
+        Premier date:{" "}
       </label>
       <input type={"date"} onChange={setShowInfo} name="Premiered" style={{ width: "150px" }} />
       <br /> <br />

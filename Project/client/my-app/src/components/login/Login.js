@@ -101,16 +101,16 @@ export default function Login() {
       <br/>
      &nbsp; <span className="fontBolder">Login</span>   <br/><br/>
       &nbsp; <button class="admin" role="button" onClick={adminButt}>Admin</button> <br/><br/>
-      &nbsp; <span>userName : </span>
+      &nbsp; <span>UserName : </span>
       <input name="userName" id="userName" onChange={setUser} type={"text"} /> <br />
       {nameValid ? null : <span>name is invalid use only A-Z , a-z , 1-9</span>}
       <br />
-      &nbsp;  <span>password : </span>{" "}
+      &nbsp;  <span>Password : </span>{" "}
       <input name="password" id="password" onChange={setUser} type={"password"} /> <br />
       {passwordValid ? null : <span>password is invalid dont use space </span>}
       <br />
       &nbsp;&nbsp; <button class="mainButton" role="button" onClick={verifyUser}>log me</button> &nbsp; &nbsp;&nbsp;
-      <Link to="/newuser">first tame?</Link>
+      <Link to="/newuser">First time?</Link>
       <br/>
       <br/>
     </div>
