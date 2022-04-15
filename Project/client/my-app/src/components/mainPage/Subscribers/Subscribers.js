@@ -1,10 +1,16 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import AddSubscripsion from "./AddSubscripsion";
+import MainContext from "../../MainContext";
+
 
 export default function Subscribers(props) {
-  const [userSubscripsions, setUserSubscripsions] = useState({ Shows: [{ showId: "" }] });
+  const {
+    links: {companyServer, subscriptionServer},
+  } = useContext(MainContext);
+
+  const [userSubscripsions, setUserSubscripsions] = useState({ Shows: [] });
   const [listOfSubs, setListOfSubs] = useState([]);
   const [Test, setTest] = useState(false);
   const [addSubComponent, setAddSubComponent] = useState(false);
@@ -12,9 +18,9 @@ export default function Subscribers(props) {
 
   const getSub = async () => {
     const { data: responesFromDb } = await axios.get(
-      `https://subscriptions-server.vercel.app/subscriptions/subscribers/memnerId/${props.memberId}`
+      `${subscriptionServer}/subscribers/memnerId/${props.memberId}`
     );
-    // console.log(responesFromDb);
+    console.log(responesFromDb);
     setUserSubscripsions(responesFromDb);
     // console.log(responesFromDb);
   };
@@ -23,24 +29,29 @@ export default function Subscribers(props) {
   }, []);
 
   const subToListItem = async () => {
+    console.log(userSubscripsions.Shows.length);
     if (userSubscripsions.Shows.length >= 1) {
       // console.log("memberID", props.memberId);
-      console.log("userSubscripsions.Shows", userSubscripsions);
+      // console.log("userSubscripsions.Shows", userSubscripsions);
+      
       const listItems = await Promise.all(
         userSubscripsions.Shows.map(async (el, index) => {
+          if (el.showId=="") {
+            console.log("00");
+          }
           const { data: showInfo } = await axios.get(
             `https://subscriptions-server.vercel.app/subscriptions/shows/${el.showId}`
           );
-          // console.log("show ID" , el.showId);
+          // console.log("show ID" , el);
           // console.log("showInfo", showInfo);
-          setTest(!Test)
+          setTest(!Test);
+
           return (
             <li key={index}>
               <Link to={`/shows/specifishow/${el.showId}`}>{`${showInfo.Name},`}</Link>
               {` ${el.date}`}
             </li>
           );
-          
         })
       );
       const helper = [...listOfSubs];
@@ -70,7 +81,7 @@ export default function Subscribers(props) {
       ) : null}{" "}
       <br />
       <span className="fontBold">Subscriptions status: </span>
-      {Test ? <ul>{listOfSubs}</ul> : <span> no Subscriptions</span>}
+      {userSubscripsions.Shows.length >= 1 ? <ul>{listOfSubs}</ul> : <span> no Subscriptions</span>}
     </div>
   );
   // return (<div>00</div>)

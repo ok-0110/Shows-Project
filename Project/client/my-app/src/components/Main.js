@@ -16,9 +16,11 @@ export default function Main() {
     change: [anyChange, setAnyChange],
     idEditUser: [idEditUser, setIdEditUser],
     links: {
-      companyServer: { company: "", users: "", permissions: "", employee: "" },
-      subscriptionServer: { subscription: "", members: "", shows: "", subscribers: "" },
-    },
+      // companyServer: "",
+      // subscriptionServer:"https://subscriptions-server.vercel.app/subscriptions",
+      companyServer: "",
+      subscriptionServer:"https://subscriptions-server.vercel.app/subscriptions",
+    }
   };
 
   return (

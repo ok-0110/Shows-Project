@@ -101,7 +101,7 @@ export default function AddSubscripsion(props) {
     <div style={{padding:"5px", border: "1px solid black", margin: "4px" }}>
       &nbsp;&nbsp;&nbsp;
       <select name="showId" onChange={setUserInfo}>
-        <option disabled defaultValue="demo">
+        <option disabled selected defaultValue="demo">
           Select Show
         </option>{" "}
         {/*  selected maid a eror - need to fix*/}

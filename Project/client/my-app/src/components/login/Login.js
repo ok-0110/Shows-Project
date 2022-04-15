@@ -44,6 +44,7 @@ export default function Login() {
 
   const verifyUser = async () => {
     if (nameValid && passwordValid) {
+
       const { data: allUsers } = await axios.get("https://company-server.vercel.app/company/users");
       const user = allUsers.find((el) => el.UserName === loggdUser.userName);
       if (user === undefined) {
