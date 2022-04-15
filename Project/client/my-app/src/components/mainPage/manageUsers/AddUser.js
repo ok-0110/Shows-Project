@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import validator from "validator";
+import {companyServer, subscriptionServer} from "../../URL"
 
 export default function AddUser() {
   const [firstName, setFirstNameValid] = useState(false);
@@ -78,7 +79,7 @@ export default function AddUser() {
         Password: `1234`,
       };
       const { data: userResponsFromDB } = await axios.post(
-        `https://company-server.vercel.app/company/users`,
+        `${companyServer}/users`,
         newUser
       );
       //get id tnd sand to employee.json
@@ -86,12 +87,12 @@ export default function AddUser() {
       // newUser.userName = "userName exist";
       newUser.userId = userResponsFromDB._id;
 
-      await axios.post(`https://company-server.vercel.app/company/employee`, newUser);
+      await axios.post(`${companyServer}/employee`, newUser);
 
       //get id tnd sand to permisions.json
       const arrOfPermisions = checkboxsToArrOfString();
       const userPermi = { userId: userResponsFromDB._id, permissions: arrOfPermisions };
-      await axios.post(`https://company-server.vercel.app/company/permissions`, userPermi);
+      await axios.post(`${companyServer}/permissions`, userPermi);
 
       //back to all users
       alert("user added");

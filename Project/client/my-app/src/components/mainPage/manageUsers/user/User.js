@@ -1,12 +1,9 @@
-import React, { useEffect, useState,useContext } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import MainContext from "../../../MainContext";
 import axios from "axios";
+import {companyServer, subscriptionServer} from "../../../URL"
 
 export default function User(props) {
-  const {
-    links: {companyServer, subscriptionServer},
-  } = useContext(MainContext);
 
   const navigate = useNavigate();
   const [permissions, setPermissions] = useState({});
@@ -26,11 +23,11 @@ export default function User(props) {
   const deleteUser = async () => {
     if (window.confirm(`You sure you want to delete ${props.data.firstName}`)) {
       //user
-      await axios.delete(`https://company-server.vercel.app/company/users/${props.data.userId}`);
+      await axios.delete(`${companyServer}/users/${props.data.userId}`);
       //permission
-      await axios.delete(`https://company-server.vercel.app/company/permissions/${props.data.userId}`);
+      await axios.delete(`${companyServer}/permissions/${props.data.userId}`);
       //employee
-      await axios.delete(`https://company-server.vercel.app/company/employee/${props.data.userId}`);
+      await axios.delete(`${companyServer}/employee/${props.data.userId}`);
       //reload
       setReload(!reload);
     }

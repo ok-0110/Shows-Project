@@ -3,6 +3,8 @@ import axios from "axios";
 import MainContext from "../MainContext";
 import { Link, useNavigate } from "react-router-dom";
 import validator from "validator";
+import {companyServer, subscriptionServer} from "../URL"
+
 
 export default function Login() {
   const navigate = useNavigate();
@@ -44,8 +46,7 @@ export default function Login() {
 
   const verifyUser = async () => {
     if (nameValid && passwordValid) {
-
-      const { data: allUsers } = await axios.get("https://company-server.vercel.app/company/users");
+      const { data: allUsers } = await axios.get(`${companyServer}/users`);
       const user = allUsers.find((el) => el.UserName === loggdUser.userName);
       if (user === undefined) {
         alert("user-name not match :(");
@@ -64,7 +65,7 @@ export default function Login() {
   const login = async (userObj) => {
     if (loggdUser.password !== "1234") {
       const { data: userPremission } = await axios.get(
-        `https://company-server.vercel.app/company/permissions/${userObj._id}`
+        `${companyServer}/permissions/${userObj._id}`
       );
       sessionStorage.setItem("permissions", JSON.stringify(userPremission.permissions));
       sessionStorage.setItem("isLogged", JSON.stringify(true));
@@ -73,9 +74,7 @@ export default function Login() {
         sessionStorage.setItem("name", JSON.stringify("admin"));
       } else {
         sessionStorage.setItem("isAdmin", JSON.stringify(false));
-        const { data: useremployee } = await axios.get(
-          `https://company-server.vercel.app/company/employee/${userObj._id}`
-        );
+        const { data: useremployee } = await axios.get(`${companyServer}/employee/${userObj._id}`);
         sessionStorage.setItem("name", JSON.stringify(`${useremployee.firstName}`));
       }
       setAnyChange(!anyChange);
@@ -99,21 +98,31 @@ export default function Login() {
 
   return (
     <div style={{ border: "1px solid black", margin: "4px" }}>
-      <br/>
-     &nbsp; <span className="fontBolder">Login</span>   <br/><br/>
-      &nbsp; <button className="admin" role="button" onClick={adminButt}>Admin</button> <br/><br/>
+      <br />
+      &nbsp; <span className="fontBolder">Login</span> <br />
+      <br />
+      &nbsp;{" "}
+      <button className="admin" role="button" onClick={adminButt}>
+        Admin
+      </button>{" "}
+      <br />
+      <br />
       &nbsp; <span>UserName : </span>
       <input name="userName" id="userName" onChange={setUser} type={"text"} /> <br />
       {nameValid ? null : <span>name is invalid use only A-Z , a-z , 1-9</span>}
       <br />
-      &nbsp;  <span>Password : </span>{" "}
+      &nbsp; <span>Password : </span>{" "}
       <input name="password" id="password" onChange={setUser} type={"password"} /> <br />
       {passwordValid ? null : <span>password is invalid dont use space </span>}
       <br />
-      &nbsp;&nbsp; <button className="mainButton" role="button" onClick={verifyUser}>log me</button> &nbsp; &nbsp;&nbsp;
+      &nbsp;&nbsp;{" "}
+      <button className="mainButton" role="button" onClick={verifyUser}>
+        log me
+      </button>{" "}
+      &nbsp; &nbsp;&nbsp;
       <Link to="/newuser">First time?</Link>
-      <br/>
-      <br/>
+      <br />
+      <br />
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import User from "./user/User";
+import {companyServer, subscriptionServer} from "../../URL"
 
 export default function AllUsers() {
   const [allUsers, setAllUsers] = useState([]);
@@ -13,7 +14,7 @@ export default function AllUsers() {
 
   const getAllEmployees = async () => { 
     const { data: allEmployeedsFromJson } = await axios.get(
-      `https://company-server.vercel.app/company/employee`
+      `${companyServer}/employee`
     );
 
     const Users = allEmployeedsFromJson.map((el) =>  {

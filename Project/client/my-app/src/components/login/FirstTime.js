@@ -3,6 +3,8 @@ import axios from "axios";
 import MainContext from "../MainContext";
 import { Link, useNavigate } from "react-router-dom";
 import validator from "validator";
+import {companyServer, subscriptionServer} from "../URL"
+
 
 export default function FirstTime() {
   const navigate = useNavigate();
@@ -66,7 +68,7 @@ export default function FirstTime() {
 
   const verifyUser = async () => {
     if (nameValid && passwordValid && newpasswordValid) {
-      const { data: allUsers } = await axios.get("https://company-server.vercel.app/company/users");
+      const { data: allUsers } = await axios.get(`${companyServer}/users`);
       // console.log(allUsers);
       const user = allUsers.find((el) => el.UserName === loggdUser.userName);
       if (user === undefined) {
@@ -88,7 +90,7 @@ export default function FirstTime() {
         newUser.Password = newloggdUser.newPassword;
         console.log(newUser);
         const { data: response } = await axios.put(
-          `https://company-server.vercel.app/company/users/${user._id}`,
+          `${companyServer}/users/${user._id}`,
           newUser
         );
         console.log(response);

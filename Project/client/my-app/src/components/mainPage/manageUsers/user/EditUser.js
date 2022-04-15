@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import validator from "validator";
+import {companyServer, subscriptionServer} from "../../../URL"
 
 export default function EditUser() {
   const navigate = useNavigate();
@@ -16,13 +17,13 @@ export default function EditUser() {
   // setPremssionsFromJson(
   const settingUser = async () => {
     const { data: usersFromAxios } = await axios.get(
-      `https://company-server.vercel.app/company/users/${userid}`
+      `${companyServer}/users/${userid}`
     );
     const { data: employeeFromAxios } = await axios.get(
-      `https://company-server.vercel.app/company/employee/${userid}`
+      `${companyServer}/employee/${userid}`
     );
     const { data: permissionsFromAxios } = await axios.get(
-      `https://company-server.vercel.app/company/permissions/${userid}`
+      `${companyServer}/permissions/${userid}`
     );
 
     setUserFromDB({ ...usersFromAxios });
@@ -135,16 +136,16 @@ export default function EditUser() {
         Password: `1234`,
       };
 
-      await axios.put(`https://company-server.vercel.app/company/users/${userFromDB._id}`, newUser);
+      await axios.put(`${companyServer}/users/${userFromDB._id}`, newUser);
       //get id tnd sand to employee.json
       newUser = { ...newUserInfo };
       newUser.userId = userFromDB._id;
-      await axios.put(`https://company-server.vercel.app/company/employee/${userFromDB._id}`, newUser);
+      await axios.put(`${companyServer}/employee/${userFromDB._id}`, newUser);
 
       //get id tnd sand to permisions.json
       const arrOfPermisions = checkboxsToArrOfString();
       const userPermi = { userId: userFromDB._id, permissions: arrOfPermisions };
-      await axios.put(`https://company-server.vercel.app/company/permissions/${userFromDB._id}`, userPermi);
+      await axios.put(`${companyServer}/permissions/${userFromDB._id}`, userPermi);
 
       //back to all users
       alert("user updated");
