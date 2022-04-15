@@ -100,7 +100,7 @@ export default function Login() {
     <div style={{ border: "1px solid black", margin: "4px" }}>
       <br/>
      &nbsp; <span className="fontBolder">Login</span>   <br/><br/>
-      &nbsp; <button class="admin" role="button" onClick={adminButt}>Admin</button> <br/><br/>
+      &nbsp; <button className="admin" role="button" onClick={adminButt}>Admin</button> <br/><br/>
       &nbsp; <span>UserName : </span>
       <input name="userName" id="userName" onChange={setUser} type={"text"} /> <br />
       {nameValid ? null : <span>name is invalid use only A-Z , a-z , 1-9</span>}
@@ -109,7 +109,7 @@ export default function Login() {
       <input name="password" id="password" onChange={setUser} type={"password"} /> <br />
       {passwordValid ? null : <span>password is invalid dont use space </span>}
       <br />
-      &nbsp;&nbsp; <button class="mainButton" role="button" onClick={verifyUser}>log me</button> &nbsp; &nbsp;&nbsp;
+      &nbsp;&nbsp; <button className="mainButton" role="button" onClick={verifyUser}>log me</button> &nbsp; &nbsp;&nbsp;
       <Link to="/newuser">First time?</Link>
       <br/>
       <br/>

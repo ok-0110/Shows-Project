@@ -31,19 +31,19 @@ export default function MainPage() {
   const adminButtons = (
     <div>
       &nbsp; &nbsp;{" "}
-      <button class="mainButton" role="button" onClick={navigateTo} name="manageusers">
+      <button className="mainButton" role="button" onClick={navigateTo} name="manageusers">
         Users Managment
       </button>
       {/* &nbsp;&nbsp; */}
-      <button class="mainButton" role="button" onClick={navigateTo} name="shows">
+      <button className="mainButton" role="button" onClick={navigateTo} name="shows">
         Shows
       </button>
       {/* &nbsp;&nbsp; */}
-      <button class="mainButton" role="button" onClick={navigateTo} name="Subscribers">
+      <button className="mainButton" role="button" onClick={navigateTo} name="Subscribers">
         Subscriptions
       </button>
       &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-      <button class="mainButton" role="button" onClick={logOut}>
+      <button className="mainButton" role="button" onClick={logOut}>
         Log Out
       </button>{" "}
       &nbsp;
@@ -53,17 +53,17 @@ export default function MainPage() {
     <div>
       &nbsp; &nbsp;{" "}
       {permissions.find((el) => el === "View Movies") ? (
-        <button class="mainButton" role="button" onClick={navigateTo} name="shows">
+        <button className="mainButton" role="button" onClick={navigateTo} name="shows">
           Shows
         </button>
       ) : null}
       {permissions.find((el) => el === "View Subscriptions") ? (
-        <button class="mainButton" role="button" onClick={navigateTo} name="Subscribers">
+        <button className="mainButton" role="button" onClick={navigateTo} name="Subscribers">
           Subscriptions
         </button>
       ) : null}
       &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;
-      <button class="mainButton" role="button" onClick={logOut}>
+      <button className="mainButton" role="button" onClick={logOut}>
         Log Out
       </button>{" "}
       &nbsp;
@@ -76,7 +76,7 @@ export default function MainPage() {
       {isAdmin ? adminButtons : employeeButtons}
       <br />
       <Routes>
-        <Route path="*" element={null} />
+        <Route path="*" element={<Shows />} />
         {/* <Route path="/" element={null} /> */}
         <Route path="/manageusers/*" element={<ManageUsers />} />
         <Route path="/shows/*" element={<Shows />} />

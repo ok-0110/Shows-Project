@@ -12,7 +12,14 @@ export default function Main() {
     sessionStorage.setItem("isLogged", JSON.stringify(false));
   }
 
-  const data = { change: [anyChange, setAnyChange], idEditUser: [idEditUser, setIdEditUser] };
+  const data = {
+    change: [anyChange, setAnyChange],
+    idEditUser: [idEditUser, setIdEditUser],
+    links: {
+      companyServer: { company: "", users: "", permissions: "", employee: "" },
+      subscriptionServer: { subscription: "", members: "", shows: "", subscribers: "" },
+    },
+  };
 
   return (
     <MainContext.Provider value={data}>
