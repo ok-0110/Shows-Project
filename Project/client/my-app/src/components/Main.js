@@ -15,12 +15,6 @@ export default function Main() {
   const data = {
     change: [anyChange, setAnyChange],
     idEditUser: [idEditUser, setIdEditUser],
-    links: {
-      // companyServer: "",
-      // subscriptionServer:"https://subscriptions-server.vercel.app/subscriptions",
-      companyServer: "",
-      subscriptionServer:"https://subscriptions-server.vercel.app/subscriptions",
-    }
   };
 
   return (

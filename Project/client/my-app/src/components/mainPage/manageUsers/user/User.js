@@ -1,9 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState,useContext } from "react";
 import { useNavigate } from "react-router-dom";
-
+import MainContext from "../../../MainContext";
 import axios from "axios";
 
 export default function User(props) {
+  const {
+    links: {companyServer, subscriptionServer},
+  } = useContext(MainContext);
+
   const navigate = useNavigate();
   const [permissions, setPermissions] = useState({});
   const [reload, setReload] = props.setReload;
@@ -14,7 +18,7 @@ export default function User(props) {
 
   const getUserPermissions = async () => {
     const { data: UserPermissions } = await axios.get(
-      `https://company-server.vercel.app/company/permissions/${props.data.userId}`
+      `${companyServer}/permissions/${props.data.userId}`
     );
     setPermissions(UserPermissions);
   };

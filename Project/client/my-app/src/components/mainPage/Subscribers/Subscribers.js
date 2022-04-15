@@ -1,14 +1,12 @@
 import axios from "axios";
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import AddSubscripsion from "./AddSubscripsion";
-import MainContext from "../../MainContext";
 
+import {companyServer, subscriptionServer} from "../../URL"
 
 export default function Subscribers(props) {
-  const {
-    links: {companyServer, subscriptionServer},
-  } = useContext(MainContext);
+ 
 
   const [userSubscripsions, setUserSubscripsions] = useState({ Shows: [] });
   const [listOfSubs, setListOfSubs] = useState([]);
@@ -20,7 +18,6 @@ export default function Subscribers(props) {
     const { data: responesFromDb } = await axios.get(
       `${subscriptionServer}/subscribers/memnerId/${props.memberId}`
     );
-    console.log(responesFromDb);
     setUserSubscripsions(responesFromDb);
     // console.log(responesFromDb);
   };
@@ -29,16 +26,12 @@ export default function Subscribers(props) {
   }, []);
 
   const subToListItem = async () => {
-    console.log(userSubscripsions.Shows.length);
     if (userSubscripsions.Shows.length >= 1) {
       // console.log("memberID", props.memberId);
       // console.log("userSubscripsions.Shows", userSubscripsions);
       
       const listItems = await Promise.all(
         userSubscripsions.Shows.map(async (el, index) => {
-          if (el.showId=="") {
-            console.log("00");
-          }
           const { data: showInfo } = await axios.get(
             `https://subscriptions-server.vercel.app/subscriptions/shows/${el.showId}`
           );
