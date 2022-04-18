@@ -1,13 +1,14 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import {companyServer, subscriptionServer} from "../../URL"
 
 export default function SubscriptionsTOShow(props) {
   const [allSubs, setAllSubs] = useState([]);
   const [listOfSub, setListOfSub] = useState([]);
 
   const getSubsToShow = async () => {
-    const { data: SubsFromDb } = await axios.get(`https://subscriptions-server.vercel.app/subscriptions/subscribers`);
+    const { data: SubsFromDb } = await axios.get(`${subscriptionServer}/subscribers`);
 
     SubsFromDb.forEach((element) => {
       const userSub = { userId: " ", date: " " };
@@ -36,7 +37,7 @@ export default function SubscriptionsTOShow(props) {
       const allReleventSubs = await Promise.all(
         allSubs.map(async (el, index) => {
           const { data: membersForLi } = await axios.get(
-            `https://subscriptions-server.vercel.app/subscriptions/members/${el.userId}`
+            `${subscriptionServer}/members/${el.userId}`
           );
 
           return (

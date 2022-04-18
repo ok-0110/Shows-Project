@@ -2,7 +2,6 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import AddSubscripsion from "./AddSubscripsion";
-
 import {companyServer, subscriptionServer} from "../../URL"
 
 export default function Subscribers(props) {
@@ -33,7 +32,7 @@ export default function Subscribers(props) {
       const listItems = await Promise.all(
         userSubscripsions.Shows.map(async (el, index) => {
           const { data: showInfo } = await axios.get(
-            `https://subscriptions-server.vercel.app/subscriptions/shows/${el.showId}`
+            `${subscriptionServer}/shows/${el.showId}`
           );
           // console.log("show ID" , el);
           // console.log("showInfo", showInfo);

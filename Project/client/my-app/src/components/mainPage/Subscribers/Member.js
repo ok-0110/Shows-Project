@@ -3,6 +3,7 @@ import React,{useState} from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Subscribers from "./Subscribers";
+import {companyServer, subscriptionServer} from "../../URL"
 
 export default function Member(props) {
   const navigate = useNavigate();
@@ -18,10 +19,10 @@ export default function Member(props) {
   const deleteMember = async () => {
     if (window.confirm(`You sure you want to delete ${props.data.Name}?`)) {
       // delet member
-      await axios.delete(`https://subscriptions-server.vercel.app/subscriptions/members/${props.data._id}`);
+      await axios.delete(`${subscriptionServer}/members/${props.data._id}`);
 
       //delet Member from subs
-      await axios.delete(`https://subscriptions-server.vercel.app/subscriptions/subscribers/${props.data._id}`);
+      await axios.delete(`${subscriptionServer}/subscribers/${props.data._id}`);
 
       //reload
       setReload(!reload);

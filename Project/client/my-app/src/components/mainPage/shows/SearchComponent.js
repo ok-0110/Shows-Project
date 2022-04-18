@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Show from "./Show";
 import Fuse from "fuse.js";
+import {companyServer, subscriptionServer} from "../../URL"
 
 export default function SearchComponent() {
   const [allShows, setAllShows] = useState([]);
@@ -10,7 +11,7 @@ export default function SearchComponent() {
   const [reload, setReload] = useState(false);
 
   const getAllshwos = async () => {
-    const { data: allShowsFromDB } = await axios.get(`https://subscriptions-server.vercel.app/subscriptions/shows`);
+    const { data: allShowsFromDB } = await axios.get(`${subscriptionServer}/shows`);
    
     const options = {
         includeScore: true,

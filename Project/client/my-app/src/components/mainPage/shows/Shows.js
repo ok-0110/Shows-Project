@@ -6,6 +6,7 @@ import AllShows from "./AllShows";
 import EditShow from "./EditShow";
 import SearchComponent from "./SearchComponent";
 import SpecificShow from "./SpecificShow";
+import {companyServer, subscriptionServer} from "../../URL"
 
 export default function Shows() {
   const navigate = useNavigate();

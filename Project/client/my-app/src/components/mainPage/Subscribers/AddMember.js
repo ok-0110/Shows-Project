@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import validator from "validator";
+import {companyServer, subscriptionServer} from "../../URL"
 
 export default function AddMember() {
   const navigate = useNavigate();
@@ -63,7 +64,7 @@ export default function AddMember() {
   const submit = async (e) => {
     if (nameValid && emailValid && cityValid) {
       //sand member to DB and sub to DB
-      await axios.post(`https://subscriptions-server.vercel.app/subscriptions/members`, newMemberInfo);
+      await axios.post(`${subscriptionServer}/members`, newMemberInfo);
 
       //back to all member
       alert("member updated");

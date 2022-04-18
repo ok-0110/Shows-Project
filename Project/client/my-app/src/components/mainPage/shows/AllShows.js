@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Show from "./Show";
+import {companyServer, subscriptionServer} from "../../URL"
 
 export default function AllShows() {
   const [allShows, setAllShows] = useState([]);
@@ -8,7 +9,7 @@ export default function AllShows() {
 
 
   const getAllshwos = async () => {
-    const { data: allShowsFromDB } = await axios.get(`https://subscriptions-server.vercel.app/subscriptions/shows`);
+    const { data: allShowsFromDB } = await axios.get(`${subscriptionServer}/shows`);
     // const [allShows, setAllShows] = useState([]);
 
     const Shwos = allShowsFromDB.map((el) => {

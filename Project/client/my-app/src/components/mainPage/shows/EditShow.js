@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import validator from "validator";
+import {companyServer, subscriptionServer} from "../../URL"
 
 export default function EditShow() {
   const navigate = useNavigate();
@@ -20,7 +21,7 @@ export default function EditShow() {
 
   const settingShow = async () => {
     const { data: showsFromAxios } = await axios.get(
-      `https://subscriptions-server.vercel.app/subscriptions/shows/${showid}`
+      `${subscriptionServer}/shows/${showid}`
     );
 
     setNewShowInfo({ ...showsFromAxios });
@@ -66,7 +67,7 @@ export default function EditShow() {
   const submit = async (e) => {
     if (nameValid && genresValid && imagValid) {
       //sand to db
-      await axios.put(`https://subscriptions-server.vercel.app/subscriptions/shows/${showid}`, newShowInfo);
+      await axios.put(`${subscriptionServer}/shows/${showid}`, newShowInfo);
       //back to all show
       alert("show updated");
       navigate("/shows/allshows");

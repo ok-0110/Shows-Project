@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import validator from "validator";
+import {companyServer, subscriptionServer} from "../../URL"
 
 export default function EditMember() {
   const navigate = useNavigate();
@@ -19,7 +20,7 @@ export default function EditMember() {
 
   const settingMember = async () => {
     const { data: membersFromAxios } = await axios.get(
-      `https://subscriptions-server.vercel.app/subscriptions/members/${memberid}`
+      `${subscriptionServer}/members/${memberid}`
     );
 
     setNewMemberInfo({ ...membersFromAxios });
@@ -76,7 +77,7 @@ export default function EditMember() {
   const submit = async () => {
     if (nameValid && emailValid && cityValid) {
       //sand to db
-      await axios.put(`https://subscriptions-server.vercel.app/subscriptions/members/${memberid}`, newMemberInfo);
+      await axios.put(`${subscriptionServer}/members/${memberid}`, newMemberInfo);
       //back to all member
       alert("member updated");
       navigate("/Subscribers/allmembers");

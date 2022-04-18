@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
+import {companyServer, subscriptionServer} from "../../URL"
 
 export default function AddSubscripsion(props) {
   const [shows, setShows] = useState([]);
@@ -14,13 +15,13 @@ export default function AddSubscripsion(props) {
 
   useEffect(() => {
     const getShows = async () => {
-      const { data: AllShows } = await axios.get(`https://subscriptions-server.vercel.app/subscriptions/shows`);
+      const { data: AllShows } = await axios.get(`${subscriptionServer}/shows`);
       // console.log(AllShows);
       setShows(AllShows);
     };
     const getSubs = async () => {
       const { data: AllSubs } = await axios.get(
-        `https://subscriptions-server.vercel.app/subscriptions/subscribers/memnerId/${props.memberId}`
+        `${subscriptionServer}/subscribers/memnerId/${props.memberId}`
       );
       // console.log(AllSubs);
       setSubs(AllSubs);
@@ -85,7 +86,7 @@ export default function AddSubscripsion(props) {
     if (newMemberSun.showId !== " ") {
       //add to db
       const { data: respons } = await axios.put(
-        `https://subscriptions-server.vercel.app/subscriptions/subscribers/addShow/${props.memberId}/${newMemberSun.showId}/${newMemberSun.date}`
+        `${subscriptionServer}/subscribers/addShow/${props.memberId}/${newMemberSun.showId}/${newMemberSun.date}`
       );
       console.log(respons);
       //apdate page

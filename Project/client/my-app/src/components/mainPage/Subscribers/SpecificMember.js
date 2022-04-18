@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Member from "./Member";
+import {companyServer, subscriptionServer} from "../../URL"
 
 export default function SpecificMember() {
   const navigate = useNavigate();
@@ -12,7 +13,7 @@ export default function SpecificMember() {
   useEffect(() => {
     const getdata = async () => {
       const { data: memberData } = await axios.get(
-        `https://subscriptions-server.vercel.app/subscriptions/members/${memberid}`
+        `${subscriptionServer}/members/${memberid}`
       );
       setInfoMember(memberData);
       setRedy(true);

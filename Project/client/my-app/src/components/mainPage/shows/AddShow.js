@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import validator from "validator";
+import {companyServer, subscriptionServer} from "../../URL"
 
 export default function AddShow() {
   const navigate = useNavigate();
@@ -53,7 +54,7 @@ export default function AddShow() {
   const submit = async () => {
     if (nameValid && genresValid && imagValid) {
       //sand to db
-      await axios.post(`https://subscriptions-server.vercel.app/subscriptions/shows`, newShowInfo);
+      await axios.post(`${subscriptionServer}/shows`, newShowInfo);
       //back to all show
       alert("show added");
       navigate("/shows/allshows");
