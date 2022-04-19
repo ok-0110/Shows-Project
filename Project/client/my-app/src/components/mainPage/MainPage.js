@@ -29,7 +29,7 @@ export default function MainPage() {
   };
 
   const adminButtons = (
-    <div>
+    <div >
       &nbsp; &nbsp;{" "}
       <button className="mainButton" role="button" onClick={navigateTo} name="manageusers">
         Users Managment
@@ -71,7 +71,7 @@ export default function MainPage() {
   );
   //=============================================start of return
   return (
-    <div style={{ maxWidth: "550px", border: "1px solid black", margin: "4px" }}>
+    <div  style={{ maxWidth: "550px", border: "1px solid black", margin: "4px" }}>
       <h3>&nbsp;&nbsp;{`Hello ${nameOfUser}, welcome back`}</h3>
       {isAdmin ? adminButtons : employeeButtons}
       <br />

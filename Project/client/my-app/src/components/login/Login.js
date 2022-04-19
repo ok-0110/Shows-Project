@@ -3,8 +3,7 @@ import axios from "axios";
 import MainContext from "../MainContext";
 import { Link, useNavigate } from "react-router-dom";
 import validator from "validator";
-import {companyServer, subscriptionServer} from "../URL"
-
+import { companyServer, subscriptionServer } from "../URL";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -97,7 +96,7 @@ export default function Login() {
   }, [adminClick]);
 
   return (
-    <div style={{ border: "1px solid black", margin: "4px" }}>
+    <div className="loginDiv" style={{ marginTop: "15%" }}>
       <br />
       &nbsp; <span className="fontBolder">Login</span> <br />
       <br />
@@ -107,20 +106,39 @@ export default function Login() {
       </button>{" "}
       <br />
       <br />
-      &nbsp; <span>UserName : </span>
-      <input name="userName" id="userName" onChange={setUser} type={"text"} /> <br />
+      {/* &nbsp; <span>UserName : </span> */}
+      <input
+        name="userName"
+        className="loginInput"
+        placeholder="UserName"
+        id="userName"
+        onChange={setUser}
+        type={"text"}
+      />{" "}
+      <br />
       {nameValid ? null : <span>name is invalid use only A-Z , a-z , 1-9</span>}
       <br />
-      &nbsp; <span>Password : </span>{" "}
-      <input name="password" id="password" onChange={setUser} type={"password"} /> <br />
+      {/* &nbsp; <span>Password : </span>{" "} */}
+      <input
+        name="password"
+        className="loginInput"
+        placeholder="Password"
+        id="password"
+        onChange={setUser}
+        type={"password"}
+      />{" "}
+      <br />
       {passwordValid ? null : <span>password is invalid dont use space </span>}
       <br />
       &nbsp;&nbsp;{" "}
-      <button className="mainButton" role="button" onClick={verifyUser}>
+      <button className="loginButton , fontBolder , font300  " role="button" onClick={verifyUser}>
         log me
       </button>{" "}
-      &nbsp; &nbsp;&nbsp;
-      <Link to="/newuser">First time?</Link>
+      <br />
+      <br />
+      <span style={{ textAlign: "center" }}>
+        <Link to="/newuser">First time?</Link>
+      </span>
       <br />
       <br />
     </div>

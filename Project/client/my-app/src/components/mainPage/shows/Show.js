@@ -44,7 +44,7 @@ export default function Show(props) {
   };
 
   return (
-    <div style={{ paddingLeft: "5px", border: "1px solid black", margin: "4px" }}>
+    <div  style={{ paddingLeft: "5px", border: "1px solid black", margin: "4px" }}>
       <span className="fontBolder" style={{ fontSize: "17px" }}>
         {props.data.Name} ,{" "}
       </span>
