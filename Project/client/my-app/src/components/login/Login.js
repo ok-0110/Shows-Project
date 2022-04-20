@@ -96,14 +96,12 @@ export default function Login() {
   }, [adminClick]);
 
   return (
-    <div className="loginDiv" style={{ marginTop: "15%" }}>
+    <div className="loginDiv" style={{ marginTop: "8%" }}>
+      &nbsp; <span className="fontBolder font_x-large centeredText">Login</span> <br />
       <br />
-      &nbsp; <span className="fontBolder">Login</span> <br />
-      <br />
-      &nbsp;{" "}
-      <button className="admin" role="button" onClick={adminButt}>
+      <button className="admin centeredText" role="button" onClick={adminButt}>
         Admin
-      </button>{" "}
+      </button>
       <br />
       <br />
       {/* &nbsp; <span>UserName : </span> */}
@@ -130,16 +128,21 @@ export default function Login() {
       <br />
       {passwordValid ? null : <span>password is invalid dont use space </span>}
       <br />
-      &nbsp;&nbsp;{" "}
-      <button className="loginButton , fontBolder , font300  " role="button" onClick={verifyUser}>
+      {/* &nbsp;&nbsp;{" "} */}
+      <button className="loginButton , fontBolder ,   " role="button" onClick={verifyUser}>
         log me
       </button>{" "}
       <br />
       <br />
-      <span style={{ textAlign: "center" }}>
-        <Link to="/newuser">First time?</Link>
-      </span>
+      {/* <div className="loginButton" style={{display:"initial"}}> */}
+      {/* <span className="font300" style={{color:"red", }}> */}
+      {/* "sds" */}
+      <Link to="/newuser" className="centeredText ">
+        First time?
+      </Link>
+      {/* </span> */}
       <br />
+      {/* </div> */}
       <br />
     </div>
   );

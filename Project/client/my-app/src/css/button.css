@@ -404,13 +404,16 @@
 /* ====================== */
 
 
-/* CSS */
+
 .admin,
 .admin:after {
-  width: 50px;
-  height: 25px;
+  display: block;
+  margin: 0 auto;
+
+  width: 60px;
+  height: 30px;
   line-height: 0px;
-  font-size: 12px;
+  font-size: 13px;
   font-family: Roboto,'Bebas Neue', sans-serif;
   font-weight:  bold;
   background: linear-gradient(45deg, transparent 5%, #eb6363 5%);

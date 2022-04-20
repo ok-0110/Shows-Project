@@ -7,6 +7,11 @@
   font-weight: 300;
 }
 
+.font_x-large {
+  font-family: "Roboto", sans-serif;
+  font-size: x-large;
+}
+
 .fontBolder {
   font-family: "Roboto", sans-serif;
   font-weight: bold;

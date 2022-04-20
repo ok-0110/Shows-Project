@@ -4,8 +4,6 @@
   padding: 0;
 }
 
-
-
 .loginDiv {
   background: #f8f4e5;
   padding: 50px 100px;
@@ -34,6 +32,11 @@
   border-bottom: 5px solid #ffa580;
 }
 
+.centeredText{
+  text-align: center;
+  display: block;
+}
+
 .loginButton {
   display: block;
   margin: 0 auto;
@@ -43,7 +46,7 @@
   letter-spacing: 2px;
   transition: 0.2s all ease-in-out;
   /* font: bolder; */
-  font:bold;
+  font: bold;
   outline: none;
   border: 1px solid black;
   box-shadow: 3px 3px 1px #4ecfe6, 3px 3px 1px 1px black;
@@ -62,7 +65,7 @@
 .loginInput:-webkit-autofill:hover,
 .loginInput:-webkit-autofill:focus {
   border-bottom: 5px solid #95a4ff;
-  -webkit-text-fill-color: #2A293E;
+  -webkit-text-fill-color: #2a293e;
   -webkit-box-shadow: 0 0 0px 1000px #f8f4e5 inset;
   transition: background-color 5000s ease-in-out 0s;
 }
