@@ -1,14 +1,21 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import SubscriptionsTOShow from "./SubscriptionsTOShow";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import {companyServer, subscriptionServer} from "../../URL"
+import { companyServer, subscriptionServer } from "../../URL";
+import "../../../css/styleForShow.css";
 
 export default function Show(props) {
   const navigate = useNavigate();
   const [reload, setReload] = props.setReload;
   const date = props.data.Premiered.slice(0, 4);
   const canDelete = JSON.parse(sessionStorage.getItem("canDelete"));
+
+  const randomNumbers = (min, max) => {
+    return Math.floor(Math.random() * (max - min)) + min;
+  };
+  const [random1, setrandom1] = useState(randomNumbers(-10, 10));
+  const [random2, setrandom2] = useState(randomNumbers(-10, 10));
 
   const edit = () => {
     navigate(`/shows/editshow/${props.data._id}`);
@@ -20,9 +27,7 @@ export default function Show(props) {
       await axios.delete(`${subscriptionServer}/shows/${props.data._id}`);
 
       //delet Show from subs
-      const { data: SubsFromDb } = await axios.get(
-        `${subscriptionServer}/subscribers`
-      );
+      const { data: SubsFromDb } = await axios.get(`${subscriptionServer}/subscribers`);
 
       SubsFromDb.forEach((element) => {
         element.Shows.forEach(async (el) => {
@@ -44,26 +49,36 @@ export default function Show(props) {
   };
 
   return (
-    <div  style={{ paddingLeft: "5px", border: "1px solid black", margin: "4px" }}>
+    // <div  className="note" style={{ paddingLeft: "5px", border: "1px solid black", margin: "4px" }}>
+    //  <div className="show" style={testi}>
+    <div
+      className="show"
+      style={{
+        boxShadow: ` ${random1}px ${random2}px 1px #95a4ff, ${random1}px ${random2}px 1px 1px black`,
+      }}
+    >
       <span className="fontBolder" style={{ fontSize: "17px" }}>
         {props.data.Name} ,{" "}
       </span>
       <span> {date}</span> <br />
       <span className="fontBold">Genres: </span>
       <span>{`"${props.data.Genres.join('", "')}" `}</span> <br />
-      <img  class="itsImg" src={props.data.Image} alt={`of ${props.data.Name}`} height="100" />
-      <SubscriptionsTOShow showId={props.data._id} />
-      &nbsp;{" "}
-      <button onClick={edit} class="edit" role="button">
-        <span class="text">Edit</span>
-      </button>
-      &nbsp; &nbsp;
-      {canDelete ? (
-        <button onClick={deleteShow} class="delete" role="button">
-          <span class="text">Delete</span>
-        </button>
-      ) : null}
-      <br />
+      <div style={{ display: "flex" }}>
+        <img class="itsImg" src={props.data.Image} alt={`of ${props.data.Name}`} height="100" />
+        <div style={{ paddingLeft: "20px" }}>
+          <SubscriptionsTOShow showId={props.data._id} />
+          <br />
+          <button onClick={edit} class="edit" role="button">
+            <span class="text">Edit</span>
+          </button>
+          &nbsp; &nbsp;
+          {canDelete ? (
+            <button onClick={deleteShow} class="delete" role="button">
+              <span class="text">Delete</span>
+            </button>
+          ) : null}
+        </div>
+      </div>
       <br />
     </div>
   );

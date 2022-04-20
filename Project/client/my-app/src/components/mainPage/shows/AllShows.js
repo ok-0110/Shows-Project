@@ -7,13 +7,12 @@ export default function AllShows() {
   const [allShows, setAllShows] = useState([]);
   const [reload, setReload] = useState(false);
 
-
   const getAllshwos = async () => {
     const { data: allShowsFromDB } = await axios.get(`${subscriptionServer}/shows`);
     // const [allShows, setAllShows] = useState([]);
 
     const Shwos = allShowsFromDB.map((el) => {
-      return <Show key={el._id} data={el}  setReload={[reload, setReload]}/>; 
+      return <Show key={el._id} data={el} setReload={[reload, setReload]}/>; 
     });
     setAllShows(Shwos);
   };

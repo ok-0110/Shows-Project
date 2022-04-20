@@ -41,7 +41,7 @@ export default function SubscriptionsTOShow(props) {
           );
 
           return (
-            <li key={index}>
+            <li key={index} style={{listStyle:"none"}}>
               <Link to={`/Subscribers/specificmember/${el.userId}`}>{`${membersForLi.Name},`}</Link>
               {` ${el.date}`}
             </li>
@@ -62,7 +62,7 @@ export default function SubscriptionsTOShow(props) {
   }, [allSubs]);
 
   return (
-    <div style={{ paddingLeft: "5px", border: "1px solid black", margin: "4px" }}>
+    <div style={{ paddingLeft: "5px", margin: "4px" }}>
       <span className="fontBold">subscribers status: </span>
       {listOfSub.length >= 1 ? <ul>{listOfSub}</ul> : <span>no subscribers</span>}
     </div>

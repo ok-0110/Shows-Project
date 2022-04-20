@@ -67,12 +67,13 @@ export default function Shows() {
 
   return (
     <div>
-    
+    <div className="nevBar">
       &nbsp; <button class="all" onClick={allShowsButton}>All Shows</button>
       &nbsp; {canCreate ? <button  class="add" onClick={addShowButton}>Add Show</button> : null}
       &nbsp; <label htmlFor="search for show"></label>{" "}
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type={"text"}  placeholder="search for show:" onChange={searchText} />
       <button   onClick={search}>search</button>
+    </div>
       <Routes>
         <Route path="*" element={<AllShows />} />
         <Route path="/search/:stringToSearch" element={<SearchComponent />} />

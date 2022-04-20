@@ -1,4 +1,25 @@
-.itsImg{
-
-    border-radius: 8px;
+.itsImg {
+  border-radius: 8px;
 }
+
+.nevBar {
+  margin-bottom: 5%;
+  border-radius: 4px;
+  background: #f8f4e5;
+  padding: 25px 50px;
+  border: 2px solid black;
+  box-shadow: -7px 8px 1px #93ffc1, -7px 8px 1px 1px black;
+  /* font-size: 19px; */
+}
+
+.show {
+    margin-bottom: 5%;
+    border-radius: 4px;
+    background: #f8f4e5;
+    padding: 20px 10px 10px 30px;
+    border: 2px solid black;
+    /* box-shadow: 7px 8px 1px #95a4ff, 7px 8px 1px 1px black; */
+    font-size: 19px;
+  }
+
+

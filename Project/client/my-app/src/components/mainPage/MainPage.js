@@ -29,7 +29,7 @@ export default function MainPage() {
   };
 
   const adminButtons = (
-    <div >
+    <div>
       &nbsp; &nbsp;{" "}
       <button className="mainButton" role="button" onClick={navigateTo} name="manageusers">
         Users Managment
@@ -69,11 +69,19 @@ export default function MainPage() {
       &nbsp;
     </div>
   );
+
   //=============================================start of return
+
   return (
-    <div  style={{ maxWidth: "550px", border: "1px solid black", margin: "4px" }}>
+    // <div  style={{ maxWidth: "700px", border: "1px solid black", margin: "4px" }}>
+      // <div className="mainPageDiv" >
+    <div className="" >
+      <div className="mainPageDiv">
       <h3>&nbsp;&nbsp;{`Hello ${nameOfUser}, welcome back`}</h3>
+      <br/>
       {isAdmin ? adminButtons : employeeButtons}
+
+      </div>
       <br />
       <Routes>
         <Route path="*" element={<Shows />} />
@@ -82,7 +90,6 @@ export default function MainPage() {
         <Route path="/shows/*" element={<Shows />} />
         <Route path="/Subscribers/*" element={<Members />} />
       </Routes>
-       
     </div>
   );
 }
