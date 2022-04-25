@@ -5,7 +5,8 @@ import "./css/button.css";
 import "./css/login.css";
 import "./css/body.css";
 import "./css/mainPage.css";
-
+import "./css/styleForShow.css";
+import "./css/styleForSubs.css";
 
 export default function App() {
   return (

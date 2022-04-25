@@ -1,14 +1,19 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 // import SubscriptionsTOMember from "./SubscriptionsTOMember";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Subscribers from "./Subscribers";
-import {companyServer, subscriptionServer} from "../../URL"
+import { companyServer, subscriptionServer } from "../../URL";
 
 export default function Member(props) {
   const navigate = useNavigate();
   const [reload, setReload] = props.setReload;
-  
+
+  const randomNumbers = (min, max) => {
+    return Math.floor(Math.random() * (max - min)) + min;
+  };
+  const [random1, setrandom1] = useState(randomNumbers(-10, 10));
+  const [random2, setrandom2] = useState(randomNumbers(-10, 10));
 
   const canDelete = JSON.parse(sessionStorage.getItem("canDelete"));
 
@@ -30,21 +35,39 @@ export default function Member(props) {
   };
 
   return (
-    <div style={{paddingLeft: "5px" , border: "1px solid black", margin: "4px" }}>
-      <span className="fontBolder" style={{fontSize:"17px"}}>{props.data.Name}</span> <br />
-      <span className="fontBold">Email: </span><span>{`${props.data.Email} `}</span> <br />
-      <span className="fontBold">City: </span><span>{`${props.data.City} `}</span> <br />
+    // <div style={{ paddingLeft: "5px", border: "1px solid black", margin: "4px" }}>
+    <div
+      className="sub"
+      style={{
+        boxShadow: ` ${random1}px ${random2}px 1px #eb6363, ${random1}px ${random2}px 1px 1px black`,
+      }}
+    >
+      <div style={{ display: "flex" }}>
+        <div>
+      <span className="fontBolder" style={{ fontSize: "17px" }}>
+        {props.data.Name}
+      </span>{" "}
+      <br />
+      <span className="fontBold">Email: </span>
+      <span>{`${props.data.Email} `}</span> <br />
+      <span className="fontBold">City: </span>
+      <span>{`${props.data.City} `}</span> <br /> <br />
       {/* <SubscriptionsTOMember memberId={props.data._id} /> */}
-      &nbsp; <button onClick={edit} class="edit" role="button">
-          <span class="text">Edit</span>
+      &nbsp;{" "}
+      <button onClick={edit} class="edit" role="button">
+        <span class="text">Edit</span>
       </button>{" "}
       &nbsp; &nbsp;
       {canDelete ? (
         <button onClick={deleteMember} class="delete" role="button">
-        <span class="text">Delete</span>
+          <span class="text">Delete</span>
         </button>
       ) : null}
+      </div>
+      <div style={{paddingLeft:"5%" }}>
       <Subscribers memberId={props.data._id} setReload={props.setReload} />
+      </div>
+      </div>
     </div>
   );
 }

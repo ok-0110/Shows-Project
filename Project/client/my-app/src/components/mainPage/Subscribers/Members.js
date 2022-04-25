@@ -58,10 +58,10 @@ export default function Subscriptions() {
 
   return (
     <div>
-      
+       <div className="nevBarSubs">
       &nbsp; <button onClick={allMemberButton} class="all">All Members</button>
       &nbsp; {canCreate ? <button onClick={addMemberButton} class="add">Add Members</button> : null}
-
+      </div>
       
       <Routes>
         <Route path="*" element={<AllMembers />} />

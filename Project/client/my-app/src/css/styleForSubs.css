@@ -1,18 +1,15 @@
-.itsImg {
-  border-radius: 8px;
-}
 
-.nevBarShow {
+.nevBarSubs {
   margin-bottom: 5%;
   border-radius: 4px;
   background: #f8f4e5;
   padding: 25px 50px;
   border: 2px solid black;
-  box-shadow: -7px 8px 1px #93ffc1, -7px 8px 1px 1px black;
+  box-shadow: -7px 8px 1px #c887ca, -7px 8px 1px 1px black;
   /* font-size: 19px; */
 }
 
-.show {
+.sub {
     margin-bottom: 5%;
     border-radius: 4px;
     background: #f8f4e5;

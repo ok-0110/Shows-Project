@@ -3,7 +3,7 @@ import SubscriptionsTOShow from "./SubscriptionsTOShow";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { companyServer, subscriptionServer } from "../../URL";
-import "../../../css/styleForShow.css";
+
 
 export default function Show(props) {
   const navigate = useNavigate();

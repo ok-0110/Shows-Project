@@ -6,7 +6,7 @@ import AllShows from "./AllShows";
 import EditShow from "./EditShow";
 import SearchComponent from "./SearchComponent";
 import SpecificShow from "./SpecificShow";
-import {companyServer, subscriptionServer} from "../../URL"
+
 
 export default function Shows() {
   const navigate = useNavigate();
@@ -67,7 +67,7 @@ export default function Shows() {
 
   return (
     <div>
-    <div className="nevBar">
+    <div className="nevBarShow">
       &nbsp; <button class="all" onClick={allShowsButton}>All Shows</button>
       &nbsp; {canCreate ? <button  class="add" onClick={addShowButton}>Add Show</button> : null}
       &nbsp; <label htmlFor="search for show"></label>{" "}

@@ -39,7 +39,7 @@ export default function Subscribers(props) {
           setTest(!Test);
 
           return (
-            <li key={index}>
+            <li key={index} style={{listStyle:"none"}}>
               <Link to={`/shows/specifishow/${el.showId}`}>{`${showInfo.Name},`}</Link>
               {` ${el.date}`}
             </li>
@@ -62,18 +62,16 @@ export default function Subscribers(props) {
   };
 
   return (
-    <div style={{ paddingLeft: "5px", border: "1px solid black", margin: "4px" }}>
-      <span>Shows Watched</span> <br />
-      &nbsp;
+    // <div style={{ paddingLeft: "5px", border: "1px solid black", margin: "4px" }}>
+    <div >
+      <span className="fontBold">Subscriptions status: </span>
+      {userSubscripsions.Shows.length >= 1 ? <ul>{listOfSubs}</ul> : <span> no Subscriptions</span>}
       <button class="button-28" role="button" onClick={addSub}>
         Add Show to Subscriptions
       </button>
       {addSubComponent ? (
         <AddSubscripsion memberId={props.memberId} setReload={props.setReload} />
       ) : null}{" "}
-      <br />
-      <span className="fontBold">Subscriptions status: </span>
-      {userSubscripsions.Shows.length >= 1 ? <ul>{listOfSubs}</ul> : <span> no Subscriptions</span>}
     </div>
   );
   // return (<div>00</div>)
