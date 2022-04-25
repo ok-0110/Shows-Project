@@ -36,7 +36,9 @@ export default function ManageUsers() {
 
   return (
     <div>
+      <div className="nevBarUser">
       {buttons}
+      </div>
 
       <Routes>
         <Route path="*" element={<AllUsers />} />

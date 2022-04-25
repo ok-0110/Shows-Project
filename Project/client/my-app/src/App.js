@@ -7,6 +7,7 @@ import "./css/body.css";
 import "./css/mainPage.css";
 import "./css/styleForShow.css";
 import "./css/styleForSubs.css";
+import "./css/styleForUsers.css";
 
 export default function App() {
   return (
