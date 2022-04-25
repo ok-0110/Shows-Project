@@ -129,13 +129,13 @@ export default function EditMember() {
       )}{" "}
       <br />
       &nbsp;{" "}
-      <button class="updateOrAdd" role="button" onClick={submit} name="submit">
-        <span class="text">Update</span>
+      <button className="updateOrAdd" role="button" onClick={submit} name="submit">
+        <span className="text">Update</span>
       </button>
       &nbsp;{" "}
-      <button class="cancel" role="button" onClick={cancel} name="cancel">
+      <button className="cancel" role="button" onClick={cancel} name="cancel">
         {" "}
-        <span class="text">Cancel</span>
+        <span className="text">Cancel</span>
       </button>
       <br />
       <br />

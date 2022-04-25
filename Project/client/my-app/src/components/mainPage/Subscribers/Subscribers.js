@@ -66,7 +66,7 @@ export default function Subscribers(props) {
     <div >
       <span className="fontBold">Subscriptions status: </span>
       {userSubscripsions.Shows.length >= 1 ? <ul>{listOfSubs}</ul> : <span> no Subscriptions</span>}
-      <button class="button-28" role="button" onClick={addSub}>
+      <button className="button-28" role="button" onClick={addSub}>
         Add Show to Subscriptions
       </button>
       {addSubComponent ? (

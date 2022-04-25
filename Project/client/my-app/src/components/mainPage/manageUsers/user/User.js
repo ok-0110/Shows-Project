@@ -65,12 +65,12 @@ export default function User(props) {
         <span className="fontBold">session timeOut: </span>
         <span>{`${props.data.SessionTimeOut}`}</span> <br />
         &nbsp;
-        <button onClick={edit} class="edit" name="">
-          <span class="text">Edit</span>
+        <button onClick={edit} className="edit" name="">
+          <span className="text">Edit</span>
         </button>{" "}
         &nbsp; &nbsp;
-        <button onClick={deleteUser} class="delete" name="">
-          <span class="text">Delete</span>
+        <button onClick={deleteUser} className="delete" name="">
+          <span className="text">Delete</span>
         </button>
       </div>
 

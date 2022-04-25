@@ -119,7 +119,7 @@ export default function FirstTime() {
       <br />
       &nbsp; {newpasswordValid ? null : <span style={{ fontSize: "12px", color: "#690b03" }}>password is invalid dont use space, dont use "1234" </span>}
       <br />
-      &nbsp; <button  class="mainButton" role="button" onClick={verifyUser}>set me</button> &nbsp; &nbsp;&nbsp;
+      &nbsp; <button  className="mainButton" role="button" onClick={verifyUser}>set me</button> &nbsp; &nbsp;&nbsp;
       <Link to="/">Back to Login </Link>
       <br/>
       <br/>

@@ -344,12 +344,12 @@ export default function EditUser() {
         <br />
         <br />
         &nbsp;{" "}
-        <button class="updateOrAdd" role="button" onClick={submit} name="submit">
-          <span class="text">Update</span>
+        <button className="updateOrAdd" role="button" onClick={submit} name="submit">
+          <span className="text">Update</span>
         </button>
         &nbsp;{" "}
-        <button class="cancel" role="button" onClick={cancel} name="cancel">
-          <span class="text">Cancel</span>
+        <button className="cancel" role="button" onClick={cancel} name="cancel">
+          <span className="text">Cancel</span>
         </button>
         <br />
         <br />

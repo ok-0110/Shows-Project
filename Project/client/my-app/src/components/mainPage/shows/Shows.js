@@ -68,8 +68,8 @@ export default function Shows() {
   return (
     <div>
     <div className="nevBarShow">
-      &nbsp; <button class="all" onClick={allShowsButton}>All Shows</button>
-      &nbsp; {canCreate ? <button  class="add" onClick={addShowButton}>Add Show</button> : null}
+      &nbsp; <button className="all" onClick={allShowsButton}>All Shows</button>
+      &nbsp; {canCreate ? <button  className="add" onClick={addShowButton}>Add Show</button> : null}
       &nbsp; <label htmlFor="search for show"></label>{" "}
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type={"text"}  placeholder="search for show:" onChange={searchText} />
       <button   onClick={search}>search</button>

@@ -113,12 +113,12 @@ export default function AddShow() {
       <input type={"date"} onChange={setShowInfo} name="Premiered" style={{ width: "150px" }} />
       <br /> <br />
       &nbsp;{" "}
-      <button class="updateOrAdd" role="button" onClick={submit} name="submit">
-        <span class="text">Add</span>
+      <button className="updateOrAdd" role="button" onClick={submit} name="submit">
+        <span className="text">Add</span>
       </button>
       &nbsp;{" "}
-      <button class="cancel" role="button" onClick={cancel} name="cancel">
-        <span class="text">Cancel</span>
+      <button className="cancel" role="button" onClick={cancel} name="cancel">
+        <span className="text">Cancel</span>
       </button>
       <br />
       <br />

@@ -64,17 +64,17 @@ export default function Show(props) {
       <span className="fontBold">Genres: </span>
       <span>{`"${props.data.Genres.join('", "')}" `}</span> <br />
       <div style={{ display: "flex" }}>
-        <img class="itsImg" src={props.data.Image} alt={`of ${props.data.Name}`} height="100" />
+        <img className="itsImg" src={props.data.Image} alt={`of ${props.data.Name}`} height="100" />
         <div style={{ paddingLeft: "20px" }}>
           <SubscriptionsTOShow showId={props.data._id} />
           <br />
-          <button onClick={edit} class="edit" role="button">
-            <span class="text">Edit</span>
+          <button onClick={edit} className="edit" role="button">
+            <span className="text">Edit</span>
           </button>
           &nbsp; &nbsp;
           {canDelete ? (
-            <button onClick={deleteShow} class="delete" role="button">
-              <span class="text">Delete</span>
+            <button onClick={deleteShow} className="delete" role="button">
+              <span className="text">Delete</span>
             </button>
           ) : null}
         </div>

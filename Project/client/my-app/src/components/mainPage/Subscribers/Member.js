@@ -54,13 +54,13 @@ export default function Member(props) {
       <span>{`${props.data.City} `}</span> <br /> <br />
       {/* <SubscriptionsTOMember memberId={props.data._id} /> */}
       &nbsp;{" "}
-      <button onClick={edit} class="edit" role="button">
-        <span class="text">Edit</span>
+      <button onClick={edit} className="edit" role="button">
+        <span className="text">Edit</span>
       </button>{" "}
       &nbsp; &nbsp;
       {canDelete ? (
-        <button onClick={deleteMember} class="delete" role="button">
-          <span class="text">Delete</span>
+        <button onClick={deleteMember} className="delete" role="button">
+          <span className="text">Delete</span>
         </button>
       ) : null}
       </div>

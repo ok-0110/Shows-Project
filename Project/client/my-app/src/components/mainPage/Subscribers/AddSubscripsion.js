@@ -119,10 +119,10 @@ export default function AddSubscripsion(props) {
       <button
         onClick={saveNewSub}
         style={{ padding: "0.3em 0.2em" }}
-        class="updateOrAdd"
+        className="updateOrAdd"
         role="button"
       >
-        <span class="text">Add To Subscriptions</span>
+        <span className="text">Add To Subscriptions</span>
       </button>
     </div>
   );

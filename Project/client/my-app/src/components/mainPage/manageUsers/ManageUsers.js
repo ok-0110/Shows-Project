@@ -23,11 +23,11 @@ export default function ManageUsers() {
   const buttons = (
     <div>
       &nbsp;{" "}
-      <button onClick={navigateTo} class="all" name="manageusers/allusers">
+      <button onClick={navigateTo} className="all" name="manageusers/allusers">
         All Users
       </button>
       &nbsp;{" "}
-      <button onClick={navigateTo} class="add" name="manageusers/adduser">
+      <button onClick={navigateTo} className="add" name="manageusers/adduser">
         Add User
       </button>
       &nbsp;
