@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import validator from "validator";
-import {companyServer, subscriptionServer} from "../../../URL"
+import { companyServer, subscriptionServer } from "../../../URL";
 
 export default function EditUser() {
   const navigate = useNavigate();
@@ -16,12 +16,8 @@ export default function EditUser() {
   // setEmployeeFromJson(
   // setPremssionsFromJson(
   const settingUser = async () => {
-    const { data: usersFromAxios } = await axios.get(
-      `${companyServer}/users/${userid}`
-    );
-    const { data: employeeFromAxios } = await axios.get(
-      `${companyServer}/employee/${userid}`
-    );
+    const { data: usersFromAxios } = await axios.get(`${companyServer}/users/${userid}`);
+    const { data: employeeFromAxios } = await axios.get(`${companyServer}/employee/${userid}`);
     const { data: permissionsFromAxios } = await axios.get(
       `${companyServer}/permissions/${userid}`
     );
@@ -29,7 +25,7 @@ export default function EditUser() {
     setUserFromDB({ ...usersFromAxios });
     setEmployeeFromJson({ ...employeeFromAxios });
     console.log(employeeFromAxios);
-    setPremssionsFromJson({ ...permissionsFromAxios });    
+    setPremssionsFromJson({ ...permissionsFromAxios });
   };
 
   useEffect(() => {
@@ -70,7 +66,6 @@ export default function EditUser() {
       createdDate: employeeFromJson.createdDate,
       SessionTimeOut: employeeFromJson.SessionTimeOut,
     });
-    
   };
 
   useEffect(() => {
@@ -193,13 +188,110 @@ export default function EditUser() {
 
   //========================================return
   return (
-    <div style={{ paddingLeft: "5px", border: "1px solid black", margin: "4px" }}>
-      <span className="fontBolder" style={{ fontSize: "20px" }}>
-        Edit user
-      </span>
+    <div className="addOrEditUser" style={{ display: "flex" }}>
+      {/*  */}
+      <div label="user info">
+        <span className="fontBolder" style={{ fontSize: "20px" }}>
+          Edit user
+        </span>
+        <br />
+        <br />
+        <label className="fontBold" htmlFor="First Name">
+          First Name:{" "}
+        </label>
+        <input
+          type={"text"}
+          defaultValue={employeeFromJson.firstName}
+          onChange={setUserInfo}
+          name="firstName"
+        />{" "}
+        <br />
+        {firstName ? null : (
+          <span style={{ fontSize: "12px", color: "#690b03" }}>
+            name is invalid use only A-Z , a-z{" "}
+          </span>
+        )}{" "}
+        <br />
+        <label className="fontBold" htmlFor="Last Name">
+          Last Name:{" "}
+        </label>
+        <input
+          type={"text"}
+          defaultValue={employeeFromJson.lastName}
+          onChange={setUserInfo}
+          name="lastName"
+        />{" "}
+        <br />
+        {lastName ? null : (
+          <span style={{ fontSize: "12px", color: "#690b03" }}>
+            name is invalid use only A-Z , a-z{" "}
+          </span>
+        )}{" "}
+        <br />
+        <label className="fontBold" htmlFor="User Name">
+          User Name:{" "}
+        </label>
+        <input
+          type={"text"}
+          defaultValue={employeeFromJson.userName}
+          onChange={setUserInfo}
+          name="userName"
+        />{" "}
+        <br />
+        {userName ? null : (
+          <span style={{ fontSize: "12px", color: "#690b03" }}>
+            name is invalid use only A-Z , a-z , 1-9
+          </span>
+        )}{" "}
+        <br />
+        <label className="fontBold" htmlFor="Created date">
+          {" "}
+          Created date:{" "}
+        </label>
+        <input
+          type={"date"}
+          defaultValue={
+            employeeFromJson.createdDate === undefined
+              ? undefined
+              : employeeFromJson.createdDate.toString().slice(0, 10)
+          }
+          onChange={setUserInfo}
+          name="createdDate"
+          style={{ width: "155px" }}
+        />
+        <br />
+        <br />
+        <label className="fontBold" htmlFor="Session Time Out">
+          {" "}
+          Session Time Out:{" "}
+        </label>
+        <input
+          type={"number"}
+          defaultValue={employeeFromJson.SessionTimeOut}
+          onChange={setUserInfo}
+          name="SessionTimeOut"
+          min={0}
+          style={{ width: "120px" }}
+        />
+        <br />
+        <br />
+        &nbsp;{" "}
+        <button className="updateOrAdd" role="button" onClick={submit} name="submit">
+          <span className="text">Update</span>
+        </button>
+        &nbsp;{" "}
+        <button className="cancel" role="button" onClick={cancel} name="cancel">
+          <span className="text">Cancel</span>
+        </button>
+      </div>
       <br /> <br />
-      {/* arrOfOldPermissions */}
-      <form>
+
+      <div label="permissions" style={{ paddingLeft: "5%" }}>
+      <span className="fontBolder" style={{ fontSize: "15px"}}>
+        permissions
+      </span>
+      <br/>
+      <br/>
         <label className="fontBold" htmlFor="View Subscriptions">
           View Subscriptions:
         </label>{" "}
@@ -265,95 +357,7 @@ export default function EditUser() {
           className="5"
           name="Delete Movies"
         />
-        <br />
-        <br />
-        {/*  */}
-        <label className="fontBold" htmlFor="First Name">
-          First Name:{" "}
-        </label>
-        <input
-          type={"text"}
-          defaultValue={employeeFromJson.firstName}
-          onChange={setUserInfo}
-          name="firstName"
-        />{" "}
-        <br />
-        {firstName ? null : (
-          <span style={{ fontSize: "12px", color: "#690b03" }}>
-            name is invalid use only A-Z , a-z{" "}
-          </span>
-        )}{" "}
-        <br />
-        <label className="fontBold" htmlFor="Last Name">
-          Last Name:{" "}
-        </label>
-        <input
-          type={"text"}
-          defaultValue={employeeFromJson.lastName}
-          onChange={setUserInfo}
-          name="lastName"
-        />{" "}
-        <br />
-        {lastName ? null : (
-          <span style={{ fontSize: "12px", color: "#690b03" }}>
-            name is invalid use only A-Z , a-z{" "}
-          </span>
-        )}{" "}
-        <br />
-        <label className="fontBold" htmlFor="User Name">
-          User Name:{" "}
-        </label>
-        <input
-          type={"text"}
-          defaultValue={employeeFromJson.userName}
-          onChange={setUserInfo}
-          name="userName"
-        />{" "}
-        <br />
-        {userName ? null : (
-          <span style={{ fontSize: "12px", color: "#690b03" }}>
-            name is invalid use only A-Z , a-z , 1-9
-          </span>
-        )}{" "}
-        <br />
-        <label className="fontBold" htmlFor="Created date">
-          {" "}
-          Created date:{" "}
-        </label>
-        <input
-          type={"date"}
-          defaultValue={employeeFromJson.createdDate === undefined ?undefined: employeeFromJson.createdDate.toString().slice(0, 10)}
-          onChange={setUserInfo}
-          name="createdDate"
-          style={{ width: "155px" }}
-        />
-        <br />
-        <br />
-        <label className="fontBold" htmlFor="Session Time Out">
-          {" "}
-          Session Time Out:{" "}
-        </label>
-        <input
-          type={"number"}
-          defaultValue={employeeFromJson.SessionTimeOut}
-          onChange={setUserInfo}
-          name="SessionTimeOut"
-          min={0}
-          style={{ width: "120px" }}
-        />
-        <br />
-        <br />
-        &nbsp;{" "}
-        <button className="updateOrAdd" role="button" onClick={submit} name="submit">
-          <span className="text">Update</span>
-        </button>
-        &nbsp;{" "}
-        <button className="cancel" role="button" onClick={cancel} name="cancel">
-          <span className="text">Cancel</span>
-        </button>
-        <br />
-        <br />
-      </form>
+      </div>
     </div>
   );
 }

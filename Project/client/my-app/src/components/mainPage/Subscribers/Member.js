@@ -35,39 +35,41 @@ export default function Member(props) {
   };
 
   return (
-    // <div style={{ paddingLeft: "5px", border: "1px solid black", margin: "4px" }}>
+    // <div style={{ paddingLeft: "5px", border: "1px solid black", margin: "4px" }}>maxWidth: "584.23px",
     <div
       className="sub"
       style={{
+        
         boxShadow: ` ${random1}px ${random2}px 1px #eb6363, ${random1}px ${random2}px 1px 1px black`,
+        display: "flex",
       }}
     >
-      <div style={{ display: "flex" }}>
-        <div>
-      <span className="fontBolder" style={{ fontSize: "17px" }}>
-        {props.data.Name}
-      </span>{" "}
-      <br />
-      <span className="fontBold">Email: </span>
-      <span>{`${props.data.Email} `}</span> <br />
-      <span className="fontBold">City: </span>
-      <span>{`${props.data.City} `}</span> <br /> <br />
-      {/* <SubscriptionsTOMember memberId={props.data._id} /> */}
-      &nbsp;{" "}
-      <button onClick={edit} className="edit" role="button">
-        <span className="text">Edit</span>
-      </button>{" "}
-      &nbsp; &nbsp;
-      {canDelete ? (
-        <button onClick={deleteMember} className="delete" role="button">
-          <span className="text">Delete</span>
-        </button>
-      ) : null}
+      {/* <div style={{ display: "flex" }}> */}
+      <div style={{width:"250px" }}>
+        <span className="fontBolder" style={{ fontSize: "17px" }}>
+          {props.data.Name}
+        </span>{" "}
+        <br />
+        <span className="fontBold">Email: </span>
+        <span>{`${props.data.Email} `}</span> <br />
+        <span className="fontBold">City: </span>
+        <span>{`${props.data.City} `}</span> <br /> <br />
+        {/* <SubscriptionsTOMember memberId={props.data._id} /> */}
+        &nbsp;{" "}
+        <button onClick={edit} className="edit" role="button">
+          <span className="text">Edit</span>
+        </button>{" "}
+        &nbsp; &nbsp;
+        {canDelete ? (
+          <button onClick={deleteMember} className="delete" role="button">
+            <span className="text">Delete</span>
+          </button>
+        ) : null}
       </div>
-      <div style={{paddingLeft:"5%" }}>
-      <Subscribers memberId={props.data._id} setReload={props.setReload} />
+      <div style={{ paddingLeft: "5%" }}>
+        <Subscribers memberId={props.data._id} setReload={props.setReload} />
       </div>
-      </div>
+      {/* </div> */}
     </div>
   );
 }

@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import validator from "validator";
-import {companyServer, subscriptionServer} from "../../URL"
+import { companyServer, subscriptionServer } from "../../URL";
 
 export default function AddShow() {
   const navigate = useNavigate();
@@ -60,9 +60,10 @@ export default function AddShow() {
       navigate("/shows/allshows");
     }
   };
-  //nameValid genresValid imagValid
+
   return (
-    <div style={{ border: "1px solid black", margin: "4px" }}>
+    // <div style={{ border: "1px solid black", margin: "4px" }}>
+    <div className="addOrEditShow">
       <br />
       <span className="fontBolder">Add Show </span>
       <br />

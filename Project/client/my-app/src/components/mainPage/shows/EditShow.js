@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import validator from "validator";
-import {companyServer, subscriptionServer} from "../../URL"
+import { companyServer, subscriptionServer } from "../../URL";
 
 export default function EditShow() {
   const navigate = useNavigate();
@@ -20,9 +20,7 @@ export default function EditShow() {
   });
 
   const settingShow = async () => {
-    const { data: showsFromAxios } = await axios.get(
-      `${subscriptionServer}/shows/${showid}`
-    );
+    const { data: showsFromAxios } = await axios.get(`${subscriptionServer}/shows/${showid}`);
 
     setNewShowInfo({ ...showsFromAxios });
   };
@@ -75,7 +73,7 @@ export default function EditShow() {
   };
 
   return (
-    <div style={{ border: "1px solid black", margin: "4px" }}>
+    <div className="addOrEditShow">
       <br />
       <span className="fontBolder">Edit Show </span> <br />
       <br />
@@ -106,7 +104,6 @@ export default function EditShow() {
         defaultValue={newShowInfo.Premiered.slice(0, 10)}
       />
       <br />
-     
       <br />
       &nbsp;{" "}
       <button className="updateOrAdd" role="button" onClick={submit} name="submit">
@@ -114,9 +111,10 @@ export default function EditShow() {
       </button>
       &nbsp;{" "}
       <button className="cancel" role="button" onClick={cancel} name="cancel">
-        <span className="text">Cancel</span> 
+        <span className="text">Cancel</span>
       </button>
-      <br /><br />
+      <br />
+      <br />
     </div>
   );
 }

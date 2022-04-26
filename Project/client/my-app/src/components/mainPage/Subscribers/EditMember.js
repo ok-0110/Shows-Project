@@ -85,7 +85,7 @@ export default function EditMember() {
   };
 
   return (
-    <div style={{ border: "1px solid black", margin: "4px" }}>
+    <div className="addOrEditSub">
       <span className="fontBolder" style={{ fontSize: "20px" }}>
         Edit Member{" "}
       </span>{" "}

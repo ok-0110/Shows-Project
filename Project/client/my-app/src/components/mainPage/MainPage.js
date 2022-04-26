@@ -76,7 +76,7 @@ export default function MainPage() {
     // <div  style={{ maxWidth: "700px", border: "1px solid black", margin: "4px" }}>
       // <div className="mainPageDiv" >
     <div className="" >
-      <div className="mainPageDiv">
+      <div className="mainPageDiv" style={{ maxWidth: "608"}}>
       <h3>&nbsp;&nbsp;{`Hello ${nameOfUser}, welcome back`}</h3>
       <br/>
       {isAdmin ? adminButtons : employeeButtons}

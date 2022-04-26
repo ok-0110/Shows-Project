@@ -99,7 +99,8 @@ export default function AddSubscripsion(props) {
   };
 
   return (
-    <div style={{padding:"5px", border: "1px solid black", margin: "4px" }}>
+    // <div style={{padding:"5px", border: "1px solid black", margin: "4px" }}>
+    <div  >
       &nbsp;&nbsp;&nbsp;
       <select name="showId" onChange={setUserInfo}>
         <option disabled selected defaultValue="demo">
