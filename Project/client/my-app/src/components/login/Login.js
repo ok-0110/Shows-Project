@@ -3,8 +3,10 @@ import axios from "axios";
 import MainContext from "../MainContext";
 import { Link, useNavigate } from "react-router-dom";
 import validator from "validator";
-import { companyServer, subscriptionServer } from "../URL";
-
+import { companyServer } from "../URL";
+import { startIntroLogIN } from "../../intro.js/loginIntro";
+import "../../css/index.css"
+import introJs from "intro.js";
 export default function Login() {
   const navigate = useNavigate();
   const [nameValid, setNameValid] = useState(true);
@@ -84,6 +86,7 @@ export default function Login() {
   };
 
   const adminButt = async () => {
+    introJs().exit()
     // await setLoggdUser({userName: "admin", password: "admin"} )
     setLoggdUser({ userName: "admin", password: "admin" });
     setAdminClick(!adminClick);
@@ -95,16 +98,21 @@ export default function Login() {
     }
   }, [adminClick]);
 
+  useEffect(() => {
+    startIntroLogIN();
+  }, []);
+
+  
+
   return (
     <div className="loginDiv" style={{ marginTop: "8%" }}>
       &nbsp; <span className="fontBolder font_x-large centeredText">Login</span> <br />
       <br />
-      <button className="admin centeredText" role="button" onClick={adminButt}>
+      <button className="admin centeredText" onClick={adminButt}>
         Admin
       </button>
       <br />
       <br />
-      {/* &nbsp; <span>UserName : </span> */}
       <input
         name="userName"
         className="loginInput"
@@ -116,7 +124,6 @@ export default function Login() {
       <br />
       {nameValid ? null : <span>name is invalid use only A-Z , a-z , 1-9</span>}
       <br />
-      {/* &nbsp; <span>Password : </span>{" "} */}
       <input
         name="password"
         className="loginInput"
@@ -128,21 +135,15 @@ export default function Login() {
       <br />
       {passwordValid ? null : <span>password is invalid dont use space </span>}
       <br />
-      {/* &nbsp;&nbsp;{" "} */}
-      <button className="loginButton , fontBolder ,   " role="button" onClick={verifyUser}>
+      <button className="loginButton , fontBolder " onClick={verifyUser}>
         log me
       </button>{" "}
       <br />
       <br />
-      {/* <div className="loginButton" style={{display:"initial"}}> */}
-      {/* <span className="font300" style={{color:"red", }}> */}
-      {/* "sds" */}
       <Link to="/newuser" className="centeredText ">
         First time?
       </Link>
-      {/* </span> */}
       <br />
-      {/* </div> */}
       <br />
     </div>
   );

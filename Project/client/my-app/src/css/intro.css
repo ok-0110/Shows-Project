@@ -1,0 +1,25 @@
+.introjs-tooltip {
+  box-sizing: content-box;
+  position: absolute;
+  visibility: visible;
+  background-color: #fff;
+  min-width: 250px;
+  max-width: 1000px;
+  border-radius: 5px;
+  box-shadow: 0 3px 30px rgb(33 33 33 / 30%);
+  transition: opacity 0.1s ease-out;
+  left: 0%;
+  top: 0%;
+}
+.opop {
+    color: red;
+  left: 0%;
+  top: 0%;
+}
+.customTooltip {
+  font-size: 22px;
+}
+
+.introjs-tooltip-title {
+  font-size: 30px;
+}

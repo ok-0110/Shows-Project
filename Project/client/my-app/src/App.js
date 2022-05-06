@@ -8,6 +8,7 @@ import "./css/mainPage.css";
 import "./css/styleForShow.css";
 import "./css/styleForSubs.css";
 import "./css/styleForUsers.css";
+import "./css/intro.css"
 
 export default function App() {
   return (

@@ -1,3 +1,9 @@
+
+
+button {cursor: pointer;}
+
+
+
 /* CSS==================================mainButton */
 .mainButton {
   font-family: Roboto, "Open Sans", sans-serif;
@@ -409,7 +415,6 @@
 .admin:after {
   display: block;
   margin: 0 auto;
-
   width: 60px;
   height: 30px;
   line-height: 0px;
