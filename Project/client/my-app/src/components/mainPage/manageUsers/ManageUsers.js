@@ -3,6 +3,9 @@ import { useNavigate, Routes, Route } from "react-router-dom";
 import AddUser from "./AddUser";
 import AllUsers from "./AllUsers";
 import EditUser from "./user/EditUser";
+
+import { mainPageIntro, mainPageIntroSkeep, getCorentStep ,restart} from "../../../intro.js/mainIntro";
+
 export default function ManageUsers() {
   const navigate = useNavigate();
 
@@ -16,29 +19,43 @@ export default function ManageUsers() {
     }
   });
 
+ 
+
+
+
   const navigateTo = (e) => {
     navigate(`/${e.target.name}`);
+    // if (e.target.name === "manageusers/adduser" && getCorentStep() === 2) {
+    //   mainPageIntroSkeep();
+    // }
   };
 
   const buttons = (
     <div>
       &nbsp;{" "}
-      <button onClick={navigateTo} className="all" name="manageusers/allusers">
+      <button onClick={navigateTo} className="all"  name="manageusers/allusers">
         All Users
       </button>
       &nbsp;{" "}
-      <button onClick={navigateTo} className="add" name="manageusers/adduser">
+      <button onClick={navigateTo} className="add" id="manageusers_adduser" name="manageusers/adduser">
         Add User
       </button>
       &nbsp;
     </div>
   );
 
+// function next() {
+//   mainPageIntroSkeep()
+// }
+  useEffect(() => {
+    if (getCorentStep()===1) {
+      restart(3)
+    }
+  },[]);
+
   return (
     <div>
-      <div className="nevBarUser">
-      {buttons}
-      </div>
+      <div className="nevBarUser">{buttons}</div>
 
       <Routes>
         <Route path="*" element={<AllUsers />} />
@@ -48,4 +65,5 @@ export default function ManageUsers() {
       </Routes>
     </div>
   );
+  
 }

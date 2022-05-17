@@ -6,7 +6,12 @@ import AllShows from "./AllShows";
 import EditShow from "./EditShow";
 import SearchComponent from "./SearchComponent";
 import SpecificShow from "./SpecificShow";
-
+import {
+  mainPageIntro,
+  mainPageIntroSkeep,
+  getCorentStep,
+  restart,
+} from "../../../intro.js/mainIntro";
 
 export default function Shows() {
   const navigate = useNavigate();
@@ -65,15 +70,37 @@ export default function Shows() {
     navigate("/shows/addshow");
   };
 
+  // intro =========================
+  useEffect(() => {
+    if (getCorentStep() === 6) {
+      restart(8);
+    }
+  }, []);
+
+  // intro End =========================
+
   return (
     <div>
-    <div className="nevBarShow">
-      &nbsp; <button className="all" onClick={allShowsButton}>All Shows</button>
-      &nbsp; {canCreate ? <button  className="add" onClick={addShowButton}>Add Show</button> : null}
-      &nbsp; <label htmlFor="search for show"></label>{" "}
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type={"text"}  placeholder="search for show:" onChange={searchText} />
-      <button   onClick={search}>search</button>
-    </div>
+      <div className="nevBarShow" id="nevBarShow">
+        &nbsp;{" "}
+        <button className="all" onClick={allShowsButton}>
+          All Shows
+        </button>
+        &nbsp;{" "}
+        {canCreate ? (
+          <button className="add" onClick={addShowButton}>
+            Add Show
+          </button>
+        ) : null}
+        &nbsp; <label htmlFor="search for show"></label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input
+          id="searchInput"
+          type={"text"}
+          placeholder="search for show:"
+          onChange={searchText}
+        />
+        <button onClick={search}>search</button>
+      </div>
       <Routes>
         <Route path="*" element={<AllShows />} />
         <Route path="/search/:stringToSearch" element={<SearchComponent />} />

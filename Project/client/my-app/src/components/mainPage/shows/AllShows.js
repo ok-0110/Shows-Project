@@ -20,7 +20,7 @@ export default function AllShows() {
     getAllshwos()
   },[reload])
   return (
-    <div>
+    <div id="allShows">
       
       {allShows}
     </div>

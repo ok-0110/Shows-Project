@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import validator from "validator";
 import { companyServer, subscriptionServer } from "../../URL";
+import { mainPageIntro, mainPageIntroSkeep, getCorentStep, restart } from "../../../intro.js/mainIntro";
 
 export default function AddUser() {
   const [firstName, setFirstNameValid] = useState(false);
@@ -137,6 +138,11 @@ export default function AddUser() {
     });
     return arrOfPermisions;
   };
+  useEffect(() => {
+    if (getCorentStep()===2) {
+      restart(4)
+    }
+  },[]);
 
   //========================================return
   return (
@@ -223,7 +229,7 @@ export default function AddUser() {
           <br />
         </div>
 
-        <div label="permissions" style={{paddingLeft:"5%"}}>
+        <div label="permissions" id="permissions" style={{paddingLeft:"5%"}}>
         <span className="fontBolder" style={{ fontSize: "15px"}}>
         permissions
       </span>

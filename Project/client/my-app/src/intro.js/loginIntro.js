@@ -1,8 +1,11 @@
 import introJs from "intro.js";
 import "intro.js/introjs.css";
 import "../css/intro.css";
+
+const introLogin = introJs();
+
 const startIntroLogIN = () => {
-  introJs()
+  introLogin
     .setOptions({
       steps,
       tooltipClass: "customTooltip",
@@ -10,18 +13,17 @@ const startIntroLogIN = () => {
       showStepNumbers: "true",
     })
     .start();
-  //   introJs().setOption();
 };
 
 const steps = [
   {
     element: "body",
     title: "welcome!",
-    intro: "<p > that’s my project  <br/> (my \=\> <b>Omri Kedar</b>) </p>",
+    intro: "<p >My name is Omri Kedar,<br/>this is my favorite project  </p>",
   },
   {
     element: "body",
-    title: "“My deversd skill“",
+    title: "“My diverse skill“",
     intro: "<p > I created this project to “show off” my skill <b> ＼(^o^)／</b> </p>",
   },
   {
@@ -44,10 +46,10 @@ const steps = [
     intro: "In this company - only the admin can create new users",
   },
   {
-    // nextToDone: "true",
     element: ".admin",
-    intro: "You can click here to auto log as Admin",
+    intro: "You can click here to login automatically as Admin",
   },
 ];
+
 
 export { startIntroLogIN };

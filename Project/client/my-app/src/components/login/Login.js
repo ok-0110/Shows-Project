@@ -5,8 +5,9 @@ import { Link, useNavigate } from "react-router-dom";
 import validator from "validator";
 import { companyServer } from "../URL";
 import { startIntroLogIN } from "../../intro.js/loginIntro";
-import "../../css/index.css"
 import introJs from "intro.js";
+
+
 export default function Login() {
   const navigate = useNavigate();
   const [nameValid, setNameValid] = useState(true);
